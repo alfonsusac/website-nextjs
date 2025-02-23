@@ -25,6 +25,9 @@
       "suspicious": { "noEmptyInterface": "off" },
       "nursery": {
         "useSortedClasses": "warn"
+      },
+      "style": {
+        "useSelfClosingElements": "warn"
       }
     }
   },
