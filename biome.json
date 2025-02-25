@@ -24,10 +24,13 @@
       "recommended": true,
       "suspicious": { "noEmptyInterface": "off" },
       "nursery": {
-        "useSortedClasses": "warn"
+        "useSortedClasses": "off"
       },
       "style": {
-        "useSelfClosingElements": "warn"
+        "useSelfClosingElements": "info"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "info"
       }
     }
   },
