@@ -10,7 +10,7 @@ export function IndonesiaAnimatedStroke(
 ) {
 
   const svgRef = useRef<SVGSVGElement>(null)
-  const animationArrayRef = useRef<Animation[]>()
+  const animationArrayRef = useRef<Animation[]>([])
 
   useEffect(() => {
 
@@ -19,7 +19,7 @@ export function IndonesiaAnimatedStroke(
     const paths = svgRef.current?.querySelectorAll('path')
     paths?.forEach((el, key) => {
       const length = el.getTotalLength()
-      const dashL = dashLength * (length / 20) ?? 10
+      const dashL = dashLength * (length / 20)
       if (length < 100) return
       el.style.strokeOpacity = '100'
       el.style.strokeDasharray = `${ dashL } ${ length - dashL }`
