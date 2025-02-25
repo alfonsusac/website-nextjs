@@ -11,3 +11,59 @@ body {
   color: var(--foreground-hex);
   background: var(--background-hex);
 }
+
+.lamp-gradient {
+  background: conic-gradient(
+    from 0.25turn at 80% 25%,
+    #a8e0ed, 1deg, #41dcff11, 350deg, #16181D
+  );
+}
+.circle-mask {
+  mask-image: radial-gradient(
+    50% 50%,
+    #000 0%,
+    #000 50%,
+    #0000 100%
+  )
+}
+
+.hero-gradient {
+  background: radial-gradient(50% 50% at 50% 50%, #a3d3ff12, rgba(255, 255, 255, 0));
+}
+
+.reactify-filter{
+  filter: contrast(1.1) brightness(0.8) sepia() hue-rotate(170deg)
+ }
+
+.group:hover .reactify-filter{
+  filter: contrast(1) brightness(1)
+ }
+
+.indonesia-mask {
+  mask-image:radial-gradient(
+    circle,
+    #f00f 0%,
+    #f00f 50%,
+    #f002 95%
+  );
+ }
+
+@keyframes ping-bigger {
+  75%, 100% {
+    transform: scale(14);
+    opacity: 0;
+  }
+}
+.animate-ping-bigger {
+  animation: ping-bigger 4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.location-dot-label {
+  opacity: 0;
+  transform: translateX(-50%) rotateX(0deg)
+}
+
+.peer:hover ~ .location-dot-label {
+  opacity: 1;
+  transform: translateX(-50%) rotateX(-40deg)
+}

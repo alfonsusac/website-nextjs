@@ -5,6 +5,7 @@ import './globals.css';
 import { Header } from '@/components/layout/header';
 import { LayoutRoot } from '@/components/layout/layout-root';
 import { Footer } from '@/components/layout/footer';
+import type { CSSProperties } from 'react';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,13 +19,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="h-full min-h-screen w-full">
-        <LayoutRoot>
+      <body className="h-full min-h-screen ">
+        <LayoutRoot
+          style={
+            {
+              // Max Width
+              '--mw-page': '1080px',
+              '--mw-content': '860px',
+              '--mw-content-sm': '720px',
+
+              // Padding
+              '--px-page': '2rem',
+              '--px-page-sm': '1rem',
+            } as CSSProperties
+          }
+        >
           <Header />
-          <main className="flex w-full flex-1 flex-col">{children}</main>
+          <main className="flex w-full flex-1 flex-col contain-layout">{children}</main>
           <Footer />
         </LayoutRoot>
       </body>
     </html>
   );
 }
+

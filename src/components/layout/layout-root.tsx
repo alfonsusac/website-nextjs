@@ -1,5 +1,9 @@
-import type { PropsWithChildren } from 'react';
+import type { ComponentProps } from 'react';
 
-export function LayoutRoot({ children }: PropsWithChildren) {
-  return <div className="flex h-full min-h-screen w-full flex-col">{children}</div>;
+export function LayoutRoot(
+  { children, ...props }: ComponentProps<"div">,
+) {
+  return <div className="h-full min-h-screen" {...props}>
+    {children}
+  </div>;
 }
