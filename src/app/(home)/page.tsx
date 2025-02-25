@@ -10,6 +10,7 @@ import { cn } from 'lazy-cn';
 import React, { Fragment, type ComponentProps, type SVGProps } from 'react';
 import { Indonesia, IndonesiaAnimatedStroke } from '@/app/(home)/assets/Indonesia';
 import { LocationDot } from './assets/LocationDot';
+import { HeroCarousel } from './assets/Carousel';
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
         <div
           className="hero-gradient absolute w-[180rem] h-[40rem] -translate-y-1/2 rotate-[-45deg] left-1/2 -translate-x-[40%] pointer-events-none" />
       </div>
+
+      {/* Hero Section */}
       <section className="pt-14 px-[var(--px-page)]">
         <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col items-start sm:items-center   sm:text-center">
           <ReactIDLogo className="h-10" />
@@ -50,25 +53,14 @@ export default function Home() {
             Masuk
           </a>
         </div>
-
-
       </section>
+
+      {/* Carousel */}
       <section className="pt-12 lg:pt-16 ">
-        <div className="flex justify-center gap-4 lg:gap-6">
-          {Array.from({ length: 8 }, (i, index) => index).map((i) => (
-            <div
-              style={{
-                rotate: `${ i % 2 === 0 ? 3 : -3 }deg`,
-              }}
-              className="aspect-[4/3] w-[12rem] lg:w-[16rem] bg-white/50 shrink-0 rounded-xl lg:rounded-2xl overflow-hidden"
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-              key={i}
-            >
-              <img src={`/homecarousel/_${ i + 1 }.png`} alt="" className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </div>
+        <HeroCarousel />
       </section>
+
+      {/* Networing */}
       <section className="mb-32 mt-48 md:mt-52 px-[var(--px-page)]">
         <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col items-start">
           {/* Header */}
@@ -170,8 +162,9 @@ export default function Home() {
             </LinkButton>
           </div>
         </div>
-
       </section>
+
+      {/* Kolaborasi */}
       <section className="mb-40 mt-20 md:mt-20 px-[var(--px-page)]">
         <div className="absolute w-[80rem] h-[40rem] z-10 left-1/2 -translate-x-1/2 -translate-y-60 pointer-events-none contain-layout circle-mask">
           <div
@@ -283,6 +276,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Gabung ReactJS */}
       <section className="mt-20 md:mt-24 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5">
         <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col items-start">
           {/* Header */}
