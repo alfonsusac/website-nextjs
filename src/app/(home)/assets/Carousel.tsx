@@ -15,7 +15,7 @@ export function HeroCarousel() {
       { transform: "translateX(0%)" },
       { transform: "translateX(-100%)" },
     ], {
-      duration: 1000 * imgCount,
+      duration: 10000 * imgCount,
       iterations: Number.POSITIVE_INFINITY,
     })
 
@@ -86,16 +86,30 @@ function CarouselItem(
         "aspect-[4/3] w-[12rem] lg:w-[16rem] bg-white/50 shrink-0 rounded-xl lg:rounded-2xl overflow-hidden",
         "transition-all duration-300",
         "group-hover:brightness-50",
-        "hover:scale-110",
-        "hover:z-10",
         "hover:!brightness-100",
-        "hover:!rotate-0",
+        "hover:rotate-0",
+        "hover:scale-110",
         (i % imgCount) % 2 === 0 ? "rotate-3" : "-rotate-3",
       )}
       key={i}
     >
-      <div className="absolute inset-0 rounded-xl z-10 shadow-[inset_0px_0.05rem_0.01rem_0_#fff5]">
-
+      <div className={cn(
+        "absolute inset-0 rounded-xl lg:rounded-2xl z-10 shadow-[inset_0px_0.05rem_0.01rem_0_#fff5]",
+        "after:pointer-events-none",
+        "after:absolute",
+        "after:w-full",
+        "after:h-full",
+        "after:-left-full",
+        "hover:after:left-full",
+        "hover:after:duration-1000",
+        "hover:after:transition-all",
+        "after:bg-gradient-to-r",
+        "after:from-transparent",
+        "after:via-white/10",
+        "after:to-transparent",
+        "after:-skew-x-12"
+        // "after:outline",
+      )}>
       </div>
       <img
         src={`/homecarousel/_${ (i % imgCount) + 1 }.png`}

@@ -106,7 +106,7 @@ export default function Home() {
               <div className="w-[4rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
               <div className="w-[8rem] bg-gradient-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
               <div className="bg-[var(--bg)]">Workshop</div>
-              <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent outline outline-white/5 to-[var(--bg-faded)]" />
+              <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
               <div className="bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
               <div className="bg-[var(--bg)]">Meetup</div>
               <div className="bg-[var(--bg)]">Hackathon</div>
@@ -359,7 +359,6 @@ function LinkButton(
 
         'select-none',
         'transition-all duration-75',
-        // 'border border-white/10',
 
         'font-normal',
         'text-white/80',
@@ -389,7 +388,6 @@ function SocialLink(
 
         'select-none',
         'transition-all duration-75',
-        // 'border border-white/10',
 
         'font-normal',
         'text-white/80',
