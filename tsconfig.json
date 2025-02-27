@@ -24,6 +24,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@/content/*": [
+        "./src/_content/*"
       ]
     },
     "target": "ES2017"

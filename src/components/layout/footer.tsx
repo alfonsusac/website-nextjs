@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ReactIDLogo } from '../icons/reactjs-id';
 import { siFacebook, siGithub, siTelegram, siX } from 'simple-icons';
+import { link_facebook, link_github, link_telegram, link_twitter } from '@/_content/links';
 
 
 
@@ -12,25 +13,49 @@ export function Footer() {
         <div className="w-full  flex flex-row flex-wrap gap-y-4 gap-x-8 items-end justify-between">
           <ReactIDLogo className="h-6 shrink-0" />
           <div className="flex items-center gap-4">
-            {[siFacebook, siGithub, siTelegram, siX].map(({ title, path }) => (
-              <Link
-                href="#"
-                className="hover:text-white"
-                key={title}
-              >
-                <svg
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  width={24}
-                  height={24}
+            {
+              [
+                {
+                  label: 'facebook',
+                  icon: siFacebook,
+                  url: link_facebook
+                },
+                {
+                  label: 'github',
+                  icon: siGithub,
+                  url: link_github,
+                },
+                {
+                  label: 'telegram',
+                  icon: siTelegram,
+                  url: link_telegram
+                },
+                {
+                  label: 'X',
+                  icon: siX,
+                  url: link_twitter
+                }
+              ].map(({ label, url, icon: { path } }) => (
+                <Link
+                  href={url}
+                  className="hover:text-white"
+                  key={label}
+                  target="_blank"
                 >
-                  <title>{title}</title>
-                  <path d={path} />
-                </svg>
-              </Link>
-            ))}
+                  <svg
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    width={24}
+                    height={24}
+                  >
+                    <title>{label}</title>
+                    <path d={path} />
+                  </svg>
+                </Link>
+              ))
+            }
           </div>
         </div>
 

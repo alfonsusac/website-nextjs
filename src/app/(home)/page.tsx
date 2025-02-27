@@ -11,6 +11,7 @@ import React, { Fragment, type ComponentProps, type SVGProps } from 'react';
 import { Indonesia, IndonesiaAnimatedStroke } from '@/app/(home)/assets/Indonesia';
 import { LocationDot } from './assets/LocationDot';
 import { HeroCarousel } from './assets/Carousel';
+import { link_facebook, link_github, link_meetup, link_telegram, link_twitter } from '@/_content/links';
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
           </p>
 
           <a
-            href="#asdf"
+            href="#join"
             className={cn(
               'mt-6 py-3 px-16 rounded-3xl',
               'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.15rem_0.05rem_0px_#fff4,_inset_0_-0.4rem_1rem_0px_#fff2]',
@@ -70,7 +71,7 @@ export default function Home() {
               <SectionTag>
                 Networking
               </SectionTag>
-              <SectionHeader className="mt-5 text-nowrap">
+              <SectionHeader className="mt-5 text-nowrap" id="networking">
                 Belajar & Berjejaring <br /> di Event Terbaru
               </SectionHeader>
               <SectionText className="mt-5">
@@ -181,7 +182,7 @@ export default function Home() {
             <SectionTag>
               Kolaborasi
             </SectionTag>
-            <SectionHeader>
+            <SectionHeader id="kolaborasi">
               Kolaborasi dengan <br />Developer Se-Indonesia
             </SectionHeader>
             <SectionText className="max-w-[40rem] mx-auto">
@@ -292,7 +293,7 @@ export default function Home() {
               <SectionTag>
                 Kontribusi
               </SectionTag>
-              <SectionHeader className="!text-wrap">
+              <SectionHeader className="!text-wrap" id="kontribusi">
                 Berkarya dan<br /> Berkontribusi
               </SectionHeader>
               <SectionText>
@@ -343,7 +344,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <LinkButton className="self-start">
+              <LinkButton className="self-start" href={link_github}>
                 Ikuti GitHub Kami {'->'}
               </LinkButton>
 
@@ -370,7 +371,7 @@ export default function Home() {
           {/* Header */}
           <section className="flex flex-col items-center text-center w-full max-w-[var(--mw-content-sm)] mx-auto flex-wrap-reverse lg:flex-nowrap">
             <SectionTag separator="Join" />
-            <SectionHeader>
+            <SectionHeader id="join">
               Gabung dan Jadi Bagian <br /> dari Komunitas!
             </SectionHeader>
             <SectionText className="mt-5">
@@ -387,22 +388,26 @@ export default function Home() {
                   {
                     title: "Telegram Supergroup",
                     description: "Diskusi real-time dengan komunitas di Telegram!",
-                    icon: MdiTelegram
+                    icon: MdiTelegram,
+                    href: link_telegram,
                   },
                   {
                     title: "Meetup Group",
                     description: "Ikuti event dan bertemu langsung dengan sesama developer!",
-                    icon: CibMeetup
+                    icon: CibMeetup,
+                    href: link_meetup,
                   },
                   {
                     title: "Facebook Group",
                     description: "Gabung di komunitas Facebook dan berbagi wawasan!",
-                    icon: IcBaselineFacebook
+                    icon: IcBaselineFacebook,
+                    href: link_facebook
                   },
                   {
                     title: "Official Twitter Account",
                     description: "Dapatkan update dan insight terbaru di Twitter!",
-                    icon: RiTwitterXLine
+                    icon: RiTwitterXLine,
+                    href: link_twitter
                   },
                 ].map((social, index) => (
                   <SocialLink
@@ -433,10 +438,10 @@ export default function Home() {
 }
 
 function LinkButton(
-  { className, ...props }: ComponentProps<'button'>
+  { className, ...props }: ComponentProps<'a'>
 ) {
   return (
-    <button
+    <a
       {...props}
       className={cn(
         'py-3 px-8 rounded-3xl',
@@ -494,7 +499,9 @@ function SectionTag(
   }
 ) {
   return (
-    <div className={cn("text-sm sm:text-base text-nowrap font-medium tracking-[-0.015em]", className)} {...props}>
+    <div className={cn(
+      "mb-6",
+      "text-sm sm:text-base text-nowrap font-medium tracking-[-0.015em]", className)} {...props}>
       <span className="tracking-tighter text-[#3cb0ca]">
         {children}{' '}
       </span>
@@ -507,10 +514,16 @@ function SectionTag(
 }
 
 function SectionHeader(
-  { className, ...props }: ComponentProps<"h2">
+  { className, ...props }: ComponentProps<"h2"> & {
+    id: string
+  }
 ) {
   return (
-    <h2 className={cn("text-white text-4xl sm:text-5xl font-semibold text-pretty break-words sm:text-nowrap tracking-tight mt-5", className)} {...props} />
+    <h2
+      className={cn(
+        "text-white text-4xl sm:text-5xl font-semibold text-pretty break-words sm:text-nowrap tracking-tight",
+        "pt-40 -mt-40",
+        className)} {...props} />
   )
 }
 
