@@ -146,7 +146,7 @@ export default function Home() {
                   <img src={`/events/_${ index + 1 }.png`} alt="" className="reactify-filter rounded-2xl [@media(pointer:fine)]:group-hover:scale-105 transition-all duration-300 group-hover:rotate-1 outline outline-white/10" />
                 </div>
                 <div className="flex flex-col gap-1 min-w-0">
-                  <div className="text-xl leading-none text-ellipsis overflow-hidden whitespace-nowrap text-white ">
+                  <div className="text-xl leading-none line-clamp-1 text-white ">
                     {event.title}
                   </div>
                   <div className="opacity-40 leading-none mb-2 text-sm">
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Kolaborasi */}
-      <section className="mb-40 mt-20 md:mt-20 px-[var(--px-page)]">
+      <section className="mb-20 mt-20 md:mt-20 px-[var(--px-page)]">
         <div className="absolute w-[80rem] h-[40rem] z-10 left-1/2 -translate-x-1/2 -translate-y-60 pointer-events-none contain-layout circle-mask">
           <div
             className="lamp-gradient absolute w-[50%] h-[100%] pointer-events-none" />
@@ -286,9 +286,9 @@ export default function Home() {
 
         <div className="mx-auto max-w-[var(--mw-content)]">
 
-          <div className="flex gap-y-8 gap-x-2 flex-wrap">
+          <div className="flex flex-col md:flex-row gap-y-8 gap-x-2 flex-wrap">
 
-            <div className="max-w-[30rem] flex-1 min-w-[20rem]">
+            <div className="max-w-[30rem] flex-1">
               <SectionTag>
                 Kontribusi
               </SectionTag>
@@ -301,7 +301,7 @@ export default function Home() {
             </div>
 
             <div className={cn(
-              "flex-1 min-w-[20rem] max-w-[var(--mw-content-sm)]",
+              "flex-1 max-w-[var(--mw-content-sm)]",
               "flex flex-col gap-6",
             )}>
               <div className="text-[#505a69] text font-medium">
@@ -355,15 +355,30 @@ export default function Home() {
       </section>
 
       {/* Gabung ReactJS */}
-      <section className="mt-20 md:mt-24 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5">
+      <section className="pt-20 md:pt-24 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5 relative">
+
+        <div className="absolute inset-0 overflow-hidden  contain-layout flex justify-center">
+          <MdiReact className="h-[80rem] w-[80rem] shrink-0 stroke-[#505a6933] stroke-[0.02] translate-x-40 animate-dash-offset" fill="transparent"
+            style={{
+              strokeDasharray: '0.3 0.1 0.2 0.1',
+            }}
+          />
+        </div>
+
         <div className="mx-auto max-w-[var(--mw-content)] flex w-full flex-col items-start">
+
+
+
+
+
+
           {/* Header */}
-          <section className="flex justify-center w-full flex-wrap-reverse lg:flex-nowrap gap-y-10">
-            <div className="flex-grow basis-0 text-center">
+          <section className="flex justify-center w-full max-w-[var(--mw-content-sm)] mx-auto flex-wrap-reverse lg:flex-nowrap gap-y-10">
+            <div className="flex-grow basis-0">
               <SectionHeader>
-                Gabung reactjs.id
+                Gabung dan Jadi <br /> Bagian dari Komunitas!
               </SectionHeader>
-              <SectionText className="max-w-[40rem] mx-auto">
+              <SectionText>
                 Jadilah bagian dari komunitas developer React terbesar di Indonesia di ujung jarimu. Temukan kami di platform social media favorit-mu!
               </SectionText>
             </div>
@@ -457,7 +472,7 @@ function SocialLink(
     <a
       {...props}
       className={cn(
-        "px-6 py-3 text-start h-40 flex flex-col justify-end cursor-pointer",
+        "px-6 py-3 text-start h-32 sm:h-40 flex flex-col justify-end cursor-pointer",
 
         'rounded-3xl',
         'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.1rem_0.05rem_0px_#fff1,_inset_0_-0.4rem_1rem_0px_#252b35]',
@@ -499,7 +514,7 @@ function SectionHeader(
   { className, ...props }: ComponentProps<"h2">
 ) {
   return (
-    <h2 className={cn("text-white text-4xl sm:text-5xl font-semibold text-pretty  sm:text-nowrap tracking-tight mt-5", className)} {...props} />
+    <h2 className={cn("text-white text-4xl sm:text-5xl font-semibold text-pretty break-words sm:text-nowrap tracking-tight mt-5", className)} {...props} />
   )
 }
 
@@ -557,8 +572,15 @@ function IcBaselineLaunch(props: SVGProps<SVGSVGElement>) {
 
 
 
-export function IcRoundStarRate(props: SVGProps<SVGSVGElement>) {
+function IcRoundStarRate(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="m14.43 10l-1.47-4.84c-.29-.95-1.63-.95-1.91 0L9.57 10H5.12c-.97 0-1.37 1.25-.58 1.81l3.64 2.6l-1.43 4.61c-.29.93.79 1.68 1.56 1.09l3.69-2.8l3.69 2.81c.77.59 1.85-.16 1.56-1.09l-1.43-4.61l3.64-2.6c.79-.57.39-1.81-.58-1.81h-4.45z"></path></svg>
+  )
+}
+
+
+function MdiReact(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><path d="M12 10.11c1.03 0 1.87.84 1.87 1.89c0 1-.84 1.85-1.87 1.85S10.13 13 10.13 12c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7c-.52-.59-1.03-1.23-1.51-1.9a23 23 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86c.27.06.57.11.88.16zm6.54-.76l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47c.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7c.52.59 1.03 1.23 1.51 1.9c.82.08 1.63.2 2.4.36c.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86c-.27-.06-.57-.11-.88-.16zm1.45-7.05c1.47.84 1.63 3.05 1.01 5.63c2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63c-1.46.84-3.45-.12-5.37-1.95c-1.92 1.83-3.91 2.79-5.38 1.95c-1.46-.84-1.62-3.05-1-5.63c-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1-5.63c1.47-.84 3.46.12 5.38 1.95c1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26c2.1-.63 3.28-1.53 3.28-2.26s-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26c-2.1.63-3.28 1.53-3.28 2.26s1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26m9 2.26l-.3.51c.31-.05.61-.1.88-.16c-.07-.28-.18-.57-.29-.86zm-2.89 4.04c1.59 1.5 2.97 2.08 3.59 1.7c.64-.35.83-1.82.32-3.96c-.77.16-1.58.28-2.4.36c-.48.67-.99 1.31-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16c.07.28.18.57.29.86zm2.89-4.04C9.38 4.2 8 3.62 7.37 4c-.63.35-.82 1.82-.31 3.96a23 23 0 0 1 2.4-.36c.48-.67.99-1.31 1.51-1.9"></path></svg>
   )
 }

@@ -67,3 +67,14 @@ body {
   opacity: 1;
   transform: translateX(-50%) rotateX(-40deg)
 }
+
+.animate-dash-offset {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0.1;
+  animation: dash-offset 2s linear infinite;
+}
+@keyframes dash-offset {
+  to {
+    stroke-dashoffset: 1;
+  }
+}
