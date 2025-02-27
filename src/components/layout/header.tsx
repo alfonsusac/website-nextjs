@@ -29,7 +29,7 @@ export function Header() {
                 'Merchandise',
               ].map((item) => (
                 <li key={item}>
-                  <Link href={`/${ item }`}>
+                  <Link href={`/${ item.toLowerCase() }`}>
                     {item}
                   </Link>
                 </li>

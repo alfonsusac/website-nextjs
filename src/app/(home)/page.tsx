@@ -29,8 +29,7 @@ export default function Home() {
             ReactJS Indonesia
           </h1>
           <p className="mt-5 text-pretty font-light text-xl sm:text-xl leading-8 sm:leading-8 max-w-[40rem]">
-            Temukan inspirasi bersama ribuan developer yang membangun masa depan digital dengan React di
-            Indonesia
+            Temukan inspirasi dan bertumbuh bersama ribuan developer yang membangun masa depan digital dengan React di Indonesia.
           </p>
 
           <a
@@ -66,57 +65,62 @@ export default function Home() {
           {/* Header */}
           <section className="flex justify-center items-end w-full flex-wrap-reverse lg:flex-nowrap gap-y-10">
             {/* Left */}
-            <div className="flex-grow-[3] basis-0 ">
-              <h2 className="text-4xl sm:text-5xl font-medium text-nowrap">
-                <span className="text-white tracking-tight font-semibold">Networking</span>
-                <span className="text-lg font-light text-[color:unset] ml-1 tracking-[-0.015em]">
-                  <span> dengan</span>
-                  <span className="ml-1">
-                    {' '}
-                    <ReactIDLogo className="h-4 sm:h-5 inline align-[0rem]" />
-                  </span>
-                </span>
-              </h2>
-              <p className="mt-5 text-pretty text-lg sm:text-lg  max-w-[40rem] font-light">
-                Berkenalan dengan ribuan developer React di Indonesia.
-              </p>
+            <div className="flex-grow-[3] basis-0">
+              {/* Section Tag */}
+              <SectionTag>
+                Networking
+              </SectionTag>
+              <SectionHeader className="mt-5 text-nowrap">
+                Belajar & Berjejaring <br /> di Event Terbaru
+              </SectionHeader>
+              <SectionText className="mt-5">
+                Jangan lewatkan kesempatan untuk belajar, berbagi, dan berjejaring dengan sesama developer React di Indonesia!
+              </SectionText>
+              {/* <p className="mt-5 text-pretty text-lg sm:text-lg  max-w-[40rem] font-light">
+                Jangan lewatkan kesempatan untuk belajar, berbagi, dan berjejaring dengan sesama developer React di Indonesia!
+              </p> */}
             </div>
 
             {/* Right */}
-            <div
-              className={cn(
-                'h-full flex-none w-[27rem] flex flex-wrap gap-2 select-none',
-                '*:p-1',
-                // '*:bg-[#272E37]',
-                '*:h-14',
-                '*:px-8',
-                '*:flex',
-                '*:items-center',
-                '*:rounded-3xl',
-                '*:text-lg',
-              )}
-              style={{
-                // @ts-expect-error custom css props
-                '--bg': '#272E37',
-                '--bg-faded': '#272E3788',
-              }}
-            >
-              <div className="w-[6rem] bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
-              <div className="bg-[var(--bg)]">Talkshow</div>
-              <div className="w-[4rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
-              <div className="w-[8rem] bg-gradient-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
-              <div className="bg-[var(--bg)]">Workshop</div>
-              <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
-              <div className="bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
-              <div className="bg-[var(--bg)]">Meetup</div>
-              <div className="bg-[var(--bg)]">Hackathon</div>
-              <div className="grow !px-0 bg-gradient-to-l from-transparent to-[var(--bg-faded)]" />
+            <div className="flex-grow-[1] min-w-[20rem] basis-0 flex items-center justify-center">
+              <div
+                className={cn(
+                  'h-full flex-none w-[27rem] flex flex-wrap gap-2 select-none',
+                  '*:p-1',
+                  // '*:bg-[#272E37]',
+                  '*:h-14',
+                  '*:px-8',
+                  '*:flex',
+                  '*:items-center',
+                  '*:rounded-3xl',
+                  '*:text-lg',
+                )}
+                style={{
+                  // @ts-expect-error custom css props
+                  '--bg': '#272E37',
+                  '--bg-faded': '#272E3788',
+                }}
+              >
+                <div className="w-[6rem] bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
+                <div className="bg-[var(--bg)]">Talkshow</div>
+                <div className="w-[4rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
+                <div className="w-[8rem] bg-gradient-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
+                <div className="bg-[var(--bg)]">Workshop</div>
+                <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
+                <div className="bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
+                <div className="bg-[var(--bg)]">Meetup</div>
+                <div className="bg-[var(--bg)]">Hackathon</div>
+                <div className="grow !px-0 bg-gradient-to-l from-transparent to-[var(--bg-faded)]" />
+              </div>
             </div>
           </section>
           {/* End of Header */}
 
           {/* Featured Events */}
           <div className="flex flex-col gap-8 w-full mt-16 max-w-[var(--mw-content-sm)] mx-auto">
+            <div className="text-[#505a69] text font-medium">
+              Reactjs.id Featured Events <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
+            </div>
             {[
               {
                 title: 'ReactID Bali Meetup',
@@ -174,19 +178,15 @@ export default function Home() {
         </div>
         <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col-reverse gap-8 sm:flex-col  items-center text-center">
           <div className="">
-            <h2 className="text-4xl sm:text-5xl font-medium text-nowrap">
-              <span className="text-white tracking-tight font-semibold">Kolaborasi</span>
-              <span className="text-lg font-light text-[color:unset] ml-1 tracking-[-0.015em]">
-                <span> dengan</span>
-                <span className="ml-1">
-                  {' '}
-                  <ReactIDLogo className="h-4 sm:h-5 inline align-[0rem]" />
-                </span>
-              </span>
-            </h2>
-            <p className="mt-5 text-pretty text-lg sm:text-lg max-w-[50rem] font-light">
-              Bertemu dengan developer React dari seluruh Indonesia. Dapatkan wawasan terbaru tentang React melalui event yang kami adakan di berbagai kota.
-            </p>
+            <SectionTag>
+              Kolaborasi
+            </SectionTag>
+            <SectionHeader>
+              Kolaborasi dengan <br />Developer Se-Indonesia
+            </SectionHeader>
+            <SectionText className="max-w-[40rem] mx-auto">
+              Bangun koneksi dan temukan inspirasi dari komunitas React di berbagai kota.
+            </SectionText>
           </div>
 
 
@@ -276,19 +276,96 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* End of Kolaborasi */}
+
+      {/* Kontribusi */}
+      <section className={cn(
+        "py-20 md:py-24 pb-40 px-[var(--px-page)] ",
+        "bg-gradient-to-b from-[#3cb0ca]/0 to-[#3cb0ca]/5"
+      )}>
+
+        <div className="mx-auto max-w-[var(--mw-content)]">
+
+          <div className="flex gap-y-8 gap-x-2 flex-wrap">
+
+            <div className="max-w-[30rem] flex-1 min-w-[20rem]">
+              <SectionTag>
+                Kontribusi
+              </SectionTag>
+              <SectionHeader className="!text-wrap">
+                Berkarya dan<br /> Berkontribusi
+              </SectionHeader>
+              <SectionText>
+                Ikut serta dalam proyek komunitas dan bantu membangun masa depan React di Indonesia!
+              </SectionText>
+            </div>
+
+            <div className={cn(
+              "flex-1 min-w-[20rem] max-w-[var(--mw-content-sm)]",
+              "flex flex-col gap-6",
+            )}>
+              <div className="text-[#505a69] text font-medium">
+                Reactjs.id Current Projects <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
+              </div>
+              <div className="flex flex-col gap-2 max-w-[30rem]">
+
+                {/* Ideally this part should also fetch CMS to maintain the list */}
+
+                {/* Ideally this should points to a project page first */}
+                {/* Because we need new-comers to contact "PIC" from the telegram group to allow contribution */}
+                <a href="https://github.com/reactjs/id.react.dev" target="_blank" className="w-full flex flex-col gap-2 p-5 border rounded-2xl border-[#505a69]/20 hover:bg-white/5 cursor-pointer">
+                  <div className="text-white text-lg">
+                    Dokumentasi React.js Bahasa Indonesia <IcBaselineLaunch className="inline align-[-0.2rem] text-[#505a69]" />
+                  </div>
+                  <div className="font-light opacity-60 text-sm">
+                    Bantu menerjemahkan dan menyempurnakan dokumentasi React dalam Bahasa Indonesia, agar lebih banyak developer bisa belajar dengan mudah.
+                  </div>
+                  <div className="text-sm flex gap-4 flex-wrap">
+                    <div className="flex items-center gap-1">
+                      <IcRoundStarRate className="inline" />317
+                    </div>
+                  </div>
+
+                </a>
+
+                <a href="https://github.com/reactjs-id/website-nextjs" target="_blank" className="w-full flex flex-col gap-2 p-5 border rounded-2xl border-[#505a69]/20 hover:bg-white/5 cursor-pointer">
+                  <div className="text-white text-lg">
+                    Website React.js Indonesia <IcBaselineLaunch className="inline align-[-0.2rem] text-[#505a69]" />
+                  </div>
+                  <div className="font-light opacity-60 text-sm">
+                    Kembangkan dan tingkatkan situs komunitas ReactJS Indonesia, tempat developer bisa menemukan informasi, acara, dan proyek terbaru.
+                  </div>
+                  <div className="text-sm flex gap-4 flex-wrap">
+                    <div className="flex items-center gap-1">
+                      <IcRoundStarRate className="inline" />8
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <LinkButton className="self-start">
+                Ikuti GitHub Kami {'->'}
+              </LinkButton>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
 
       {/* Gabung ReactJS */}
       <section className="mt-20 md:mt-24 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5">
-        <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col items-start">
+        <div className="mx-auto max-w-[var(--mw-content)] flex w-full flex-col items-start">
           {/* Header */}
           <section className="flex justify-center w-full flex-wrap-reverse lg:flex-nowrap gap-y-10">
             <div className="flex-grow basis-0 text-center">
-              <h2 className="text-4xl sm:text-5xl font-medium text-nowrap">
-                <span className="text-white tracking-tight font-semibold">Gabung reactjs.id</span>
-              </h2>
-              <p className="mt-5 text-pretty text-lg sm:text-lg  font-light">
+              <SectionHeader>
+                Gabung reactjs.id
+              </SectionHeader>
+              <SectionText className="max-w-[40rem] mx-auto">
                 Jadilah bagian dari komunitas developer React terbesar di Indonesia di ujung jarimu. Temukan kami di platform social media favorit-mu!
-              </p>
+              </SectionText>
             </div>
           </section>
           {/* End of Header */}
@@ -341,7 +418,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </section>
     </>
   );
@@ -403,6 +479,41 @@ function SocialLink(
   )
 }
 
+function SectionTag(
+  { className, children, ...props }: ComponentProps<"div">
+) {
+  return (
+    <div className={cn("text-sm sm:text-base text-nowrap font-medium tracking-[-0.015em]", className)} {...props}>
+      <span className="tracking-tighter text-[#3cb0ca]">
+        {children}{' '}
+      </span>
+      <span>
+        dengan{' '}
+      </span>
+      <ReactIDLogo className="h-4 sm:h-5 inline align-[-0.2rem]" />
+    </div>
+  )
+}
+
+function SectionHeader(
+  { className, ...props }: ComponentProps<"h2">
+) {
+  return (
+    <h2 className={cn("text-white text-4xl sm:text-5xl font-semibold text-pretty  sm:text-nowrap tracking-tight mt-5", className)} {...props} />
+  )
+}
+
+function SectionText(
+  { className, ...props }: ComponentProps<"p">
+) {
+  return (
+    <p className={cn(
+      "mt-5 text-pretty text-lg sm:text-lg font-light",
+      className
+    )} {...props} />
+  )
+}
+
 
 function MdiTelegram(props: SVGProps<SVGSVGElement>) {
   return (
@@ -427,5 +538,27 @@ function IcBaselineFacebook(props: SVGProps<SVGSVGElement>) {
 function RiTwitterXLine(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}><path d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z"></path></svg>
+  )
+}
+
+
+function IconoirLongArrowRightDownSolid(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><g fill="currentColor" fillRule="evenodd" strokeWidth="1.5" clipRule="evenodd"><path d="M14.97 17.53a.75.75 0 0 0 1.06 0l3.5-3.5a.75.75 0 0 0-.53-1.28h-7a.75.75 0 0 0-.53 1.28z"></path><path d="M15.5 14.75a.75.75 0 0 0 .75-.75v-3a4.75 4.75 0 0 0-4.75-4.75h-7a.75.75 0 0 0 0 1.5h7A3.25 3.25 0 0 1 14.75 11v3c0 .414.336.75.75.75"></path></g></svg>
+  )
+}
+
+
+function IcBaselineLaunch(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2zM14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3z"></path></svg>
+  )
+}
+
+
+
+export function IcRoundStarRate(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="m14.43 10l-1.47-4.84c-.29-.95-1.63-.95-1.91 0L9.57 10H5.12c-.97 0-1.37 1.25-.58 1.81l3.64 2.6l-1.43 4.61c-.29.93.79 1.68 1.56 1.09l3.69-2.8l3.69 2.81c.77.59 1.85-.16 1.56-1.09l-1.43-4.61l3.64-2.6c.79-.57.39-1.81-.58-1.81h-4.45z"></path></svg>
   )
 }
