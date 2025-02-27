@@ -365,23 +365,17 @@ export default function Home() {
           />
         </div>
 
-        <div className="mx-auto max-w-[var(--mw-content)] flex w-full flex-col items-start">
-
-
-
-
-
+        <div className="mx-auto max-w-[var(--mw-content)] flex w-full flex-col items-start relative z-10">
 
           {/* Header */}
-          <section className="flex justify-center w-full max-w-[var(--mw-content-sm)] mx-auto flex-wrap-reverse lg:flex-nowrap gap-y-10">
-            <div className="flex-grow basis-0">
-              <SectionHeader>
-                Gabung dan Jadi <br /> Bagian dari Komunitas!
-              </SectionHeader>
-              <SectionText>
-                Jadilah bagian dari komunitas developer React terbesar di Indonesia di ujung jarimu. Temukan kami di platform social media favorit-mu!
-              </SectionText>
-            </div>
+          <section className="flex flex-col items-center text-center w-full max-w-[var(--mw-content-sm)] mx-auto flex-wrap-reverse lg:flex-nowrap">
+            <SectionTag separator="Join" />
+            <SectionHeader>
+              Gabung dan Jadi Bagian <br /> dari Komunitas!
+            </SectionHeader>
+            <SectionText className="mt-5">
+              Jadilah bagian dari komunitas developer React terbesar di Indonesia di ujung jarimu. Temukan kami di platform social media favorit-mu!
+            </SectionText>
           </section>
           {/* End of Header */}
 
@@ -391,37 +385,37 @@ export default function Home() {
               {
                 [
                   {
-                    title: "Telegram",
-                    description: "Masuk ke Channel Telegram",
+                    title: "Telegram Supergroup",
+                    description: "Diskusi real-time dengan komunitas di Telegram!",
                     icon: MdiTelegram
                   },
                   {
-                    title: "Meetup",
-                    description: "Masuk ke Grup Meetup",
+                    title: "Meetup Group",
+                    description: "Ikuti event dan bertemu langsung dengan sesama developer!",
                     icon: CibMeetup
                   },
                   {
-                    title: "Facebook",
-                    description: "Masuk ke Grup Facebook",
+                    title: "Facebook Group",
+                    description: "Gabung di komunitas Facebook dan berbagi wawasan!",
                     icon: IcBaselineFacebook
                   },
                   {
-                    title: "Twitter",
-                    description: "Follow di Twitter",
+                    title: "Official Twitter Account",
+                    description: "Dapatkan update dan insight terbaru di Twitter!",
                     icon: RiTwitterXLine
                   },
                 ].map((social, index) => (
                   <SocialLink
                     // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                     key={index}
-                    className="relative overflow-hidden group"
+                    className="relative overflow-hidden group flex flex-col gap-1 *:shrink-0"
                   >
-                    <div className="text-lg tracking-tight z-10">
-                      <social.icon className="w-[1em] h-[1em] inline mr-1.5 align-[-0.2rem]" fill="currentColor" />
-                      {social.title}
+                    <social.icon className="w-[1.5em] h-[1.5em] inline mr-1.5 mb-1 align-[-0.2rem] text-[#3b4961]" fill="currentColor" />
+                    <div className="text-lg text-white tracking-tight z-10">
+                      {social.title} <span className="text-nowrap tracking-normal">{'->'}</span>
                     </div>
-                    <div className="z-10 opacity-80">
-                      {social.description} {'->'}
+                    <div className="z-10 opacity-80 text-sm">
+                      {social.description}
                     </div>
                     <div className="absolute -bottom-20 right-0 text-[8rem] fill-[#212834] group-hover:-bottom-10 transition-all">
                       <social.icon className="w-60 h-60"
@@ -472,7 +466,7 @@ function SocialLink(
     <a
       {...props}
       className={cn(
-        "px-6 py-3 text-start h-32 sm:h-40 flex flex-col justify-end cursor-pointer",
+        "px-6 py-5 text-start min-h-32 sm:min-h-40 flex flex-col justify-end cursor-pointer",
 
         'rounded-3xl',
         'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.1rem_0.05rem_0px_#fff1,_inset_0_-0.4rem_1rem_0px_#252b35]',
@@ -495,7 +489,9 @@ function SocialLink(
 }
 
 function SectionTag(
-  { className, children, ...props }: ComponentProps<"div">
+  { className, children, separator, ...props }: ComponentProps<"div"> & {
+    separator?: string
+  }
 ) {
   return (
     <div className={cn("text-sm sm:text-base text-nowrap font-medium tracking-[-0.015em]", className)} {...props}>
@@ -503,7 +499,7 @@ function SectionTag(
         {children}{' '}
       </span>
       <span>
-        dengan{' '}
+        {separator ?? "dengan"}{' '}
       </span>
       <ReactIDLogo className="h-4 sm:h-5 inline align-[-0.2rem]" />
     </div>
