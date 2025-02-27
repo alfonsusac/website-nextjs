@@ -1,9 +1,50 @@
+"use client"
+
+import { cn } from 'lazy-cn';
 import Link from 'next/link';
-import type { SVGProps } from 'react';
+import { useEffect, useRef, type SVGProps } from 'react';
 
 export function Header() {
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const header = ref.current
+
+    function onScroll() {
+      if (window.scrollY > 0) {
+        header.dataset.scrolled = ''
+      } else {
+        delete header.dataset.scrolled
+      }
+    }
+
+    window.addEventListener('scroll', onScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
   return (
-    <header className="flex h-16">
+    <header
+      ref={ref}
+      className={cn(
+        "flex h-16",
+        "sticky top-0",
+        "z-40",
+
+        "border-b",
+        "border-transparent",
+
+        "data-[scrolled]:bg-[#15181d]/90",
+        "data-[scrolled]:shadow-xl",
+        "data-[scrolled]:backdrop-blur-lg",
+        "data-[scrolled]:border-b-white/5",
+
+        "transition-all duration-300",
+      )}>
       <div className="w-full max-w-[var(--mw-page)] mx-auto px-[var(--px-page)] flex flex-row items-center gap-4 text-nowrap">
 
         <div className="flex-grow">

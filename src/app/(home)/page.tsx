@@ -71,7 +71,7 @@ export default function Home() {
               <SectionTag>
                 Networking
               </SectionTag>
-              <SectionHeader className="mt-5 text-nowrap" id="networking">
+              <SectionHeader className="text-nowrap" id="networking">
                 Belajar & Berjejaring <br /> di Event Terbaru
               </SectionHeader>
               <SectionText className="mt-5">
