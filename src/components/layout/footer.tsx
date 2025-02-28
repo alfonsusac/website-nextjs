@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ReactIDLogo } from '../icons/reactjs-id';
 import { siFacebook, siGithub, siTelegram, siX } from 'simple-icons';
 import { link_facebook, link_github, link_telegram, link_twitter } from '@/_content/links';
+import { cn } from 'lazy-cn';
 
 
 
@@ -34,9 +35,11 @@ export function Footer() {
 }
 
 
-export function SocialButtons() {
+export function SocialButtons(
+  { className, ...props }: React.ComponentProps<'div'>
+) {
   return (
-    <div className="flex items-center gap-4">
+    <div className={cn("flex items-center gap-4", className)} {...props}>
       {
         [
           {

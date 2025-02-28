@@ -121,20 +121,25 @@ export function Header() {
             {
               headerNavItem.map(({ title, description }) => (
                 <Link key={title} href={`/${ title.toLowerCase() }`}
-                  className="select-none first:border-none border-t border-t-white/20 py-6 hover:text-white group"
+                  className={cn(
+                    "group",
+                    "py-6",
+                    "select-none", "hover:text-white ",
+                    "first:border-none border-t border-t-white/20",
+                  )}
                 >
-                  {title}<span className="ml-2 group-hover:ml-4 transition-all">→</span>
+                  <div>
+                    {title}
+                    <span className="ml-2 group-hover:ml-4 transition-all">→</span>
+                  </div>
                   <div className="text-wrap text-sm opacity-60">
                     {description}
                   </div>
                 </Link>
               ))
             }
-            <div className="pt-8">
-              <SocialButtons />
-            </div>
+            <SocialButtons className="pt-8" />
           </div>
-
         </nav>
 
         <nav className="hidden sm:block text-sm">
