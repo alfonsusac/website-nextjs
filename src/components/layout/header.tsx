@@ -101,14 +101,13 @@ export function Header() {
             "absolute w-screen h-screen -z-10 inset-0 ",
             "pt-[var(--height)]",
 
-            "opacity-0",
-            "bg-transparent",
+            "pointer-events-none",
 
             "transition-[opacity,transform,background] duration-300",
 
+            "opacity-0",
+            "bg-transparent",
             "-translate-y-4",
-
-            "pointer-events-none",
 
             "data-[opened]:opacity-100",
             "data-[opened]:translate-y-0",
