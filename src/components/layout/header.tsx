@@ -65,13 +65,13 @@ export function Header() {
         "sticky top-0",
         "z-40",
         "border-b border-transparent",
+        "backdrop-blur-lg",
 
         "transition-all duration-300",
 
         "data-[scrolled]:bg-[#15181d]/90",
         "data-[scrolled]:border-b-white/5",
         "data-[scrolled]:shadow-xl",
-        "backdrop-blur-lg",
       )}
       style={{
         // @ts-expect-error css variable
