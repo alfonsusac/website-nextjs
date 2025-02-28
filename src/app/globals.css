@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-hex: #c7cbd1;
-  --background-hex: #15181d;
-}
-
-body {
-  color: var(--foreground-hex);
-  background: var(--background-hex);
-}
 
 .lamp-gradient {
   background: conic-gradient(

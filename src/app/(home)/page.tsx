@@ -521,7 +521,7 @@ function SectionHeader(
   return (
     <h2
       className={cn(
-        "text-white text-4xl sm:text-5xl font-semibold text-pretty break-words sm:text-nowrap tracking-tight",
+        "text-white text-4xl xs:text-4xl sm:text-5xl font-semibold text-pretty break-words sm:text-nowrap tracking-tight",
         "pt-40 -mt-40",
         className)} {...props} />
   )
@@ -532,7 +532,7 @@ function SectionText(
 ) {
   return (
     <p className={cn(
-      "mt-5 text-pretty text-lg sm:text-lg font-light",
+      "mt-5 text-pretty text-lg xs:text-lg sm:text-lg font-light",
       className
     )} {...props} />
   )

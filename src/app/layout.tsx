@@ -18,22 +18,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="h-full min-h-screen ">
-        <LayoutRoot
-          style={
-            {
-              // Max Width
-              '--mw-page': '1080px',
-              '--mw-content': '860px',
-              '--mw-content-sm': '720px',
+    <html lang="en" className={`${ GeistSans.variable } ${ GeistMono.variable }`}>
+      <body className="h-full min-h-screen text-[var(--foreground-hex)] bg-[var(--background-hex)]">
+        <style>
+          {`
+:root {
+  --foreground-hex: #c7cbd1;
+  --background-hex: #15181d;
+  --mw-page: 1080px;
+  --mw-content: 860px;
+  --mw-content-sm: 720px;
 
-              // Padding
-              '--px-page': '2rem',
-              '--px-page-sm': '1rem',
-            } as CSSProperties
-          }
-        >
+  --px-page: 1.5rem;
+}
+@media (min-width: 640px) {
+  :root {
+    --px-page: 2rem;
+  }
+}
+          `}
+        </style>
+        <LayoutRoot>
           <Header />
           <main className="flex w-full flex-1 flex-col contain-layout">{children}</main>
           <Footer />
