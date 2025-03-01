@@ -35,27 +35,17 @@ const headerNavItem: {
 export function Header() {
   const headerRef = useElevatedHeader()
 
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  function toggleMenu() {
-    if (!isMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+
     function onResize() {
-      setIsMenuOpen(false)
+      setIsMobileMenuOpen(false)
     }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
-  }, [])
 
+  }, [])
 
   return (
     <header
@@ -80,60 +70,63 @@ export function Header() {
     >
       <div className="w-full max-w-[var(--mw-page)] mx-auto px-[var(--px-page)] flex flex-row items-center gap-4 text-nowrap">
 
-        <div className="flex-grow">
-          <div className="font-semibold text-2xl text-white leading-[40px] select-none">
-            <Link href="/">reactjs.id</Link>
-          </div>
+        {/* Logo */}
+        <div className="flex-grow font-semibold text-2xl text-white leading-[40px] select-none">
+          <Link href="/">reactjs.id</Link>
         </div>
 
-        <nav className="sm:hidden">
-          <div
-            onClick={() => toggleMenu()}
-            className="p-2 hover:bg-zinc-500/20 w-10 h-10 rounded-md">
-            <IconParkOutlineHamburgerButton className="w-full h-full" />
-          </div>
-        </nav>
+        {/* Hamburger Menu */}
+        <div
+          onClick={() => {
+            if (isMobileMenuOpen) {
+              document.body.style.overflow = ''
+            } else {
+              document.body.style.overflow = 'hidden'
+            }
+            setIsMobileMenuOpen(!isMobileMenuOpen)
+          }}
+          className="sm:hidden p-2 hover:bg-zinc-500/20 w-10 h-10 rounded-md">
+          <IconParkOutlineHamburgerButton className="w-full h-full" />
+        </div>
 
+        {/* Mobile Navbar */}
         <nav
-          ref={mobileMenuRef}
-          data-opened={isMenuOpen ? '' : undefined}
           className={cn(
-            "absolute w-screen h-screen -z-10 inset-0 ",
+            "absolute inset-0",
+            "h-screen",
+            "-z-10",
             "pt-[var(--height)]",
 
-            "pointer-events-none",
 
-            "transition-[opacity,transform,background] duration-300",
-
-            "opacity-0",
+            // "opacity-0",
+            "border",
             "bg-transparent",
+            "pointer-events-none",
             "-translate-y-4",
 
-            "data-[opened]:opacity-100",
-            "data-[opened]:translate-y-0",
-            "data-[opened]:bg-[#15161A]",
-            "data-[opened]:pointer-events-auto",
+            isMobileMenuOpen && [
+              "opacity-100",
+              "bg-[var(--background-hex)]",
+              "pointer-events-auto",
+              "translate-y-0",
+            ],
 
-          )}>
-          <div className={cn(
-            "flex flex-col h-full overflow-auto px-[var(--px-page)] pb-40",
-          )}>
+            "transition-all duration-200",
+          )}
+        >
+          <div className="flex flex-col h-full overflow-auto px-[var(--px-page)] select-none pb-16">
             {
-              headerNavItem.map(({ title, description }) => (
-                <Link key={title} href={`/${ title.toLowerCase() }`}
+              headerNavItem.map(item => (
+                <Link href={`/${ item.title.toLowerCase() }`} key={item.title}
                   className={cn(
+                    "py-6 border-t first:border-none border-white/10",
+                    "hover:text-white",
                     "group",
-                    "py-6",
-                    "select-none", "hover:text-white ",
-                    "first:border-none border-t border-t-white/20",
                   )}
                 >
-                  <div>
-                    {title}
-                    <span className="ml-2 group-hover:ml-4 transition-all">→</span>
-                  </div>
-                  <div className="text-wrap text-sm opacity-60">
-                    {description}
+                  {item.title}<span className="ml-2 group-hover:ml-3 transition-all">{'→'}</span>
+                  <div className="text-sm opacity-80 text-wrap">
+                    {item.description}
                   </div>
                 </Link>
               ))
@@ -141,6 +134,8 @@ export function Header() {
             <SocialButtons className="pt-8" />
           </div>
         </nav>
+
+
 
         <nav className="hidden sm:block text-sm">
           <ul className="flex flex-row items-center [&_a]:h-full [&_a]:px-4 gap-2 hover:[&_a]:text-white">
