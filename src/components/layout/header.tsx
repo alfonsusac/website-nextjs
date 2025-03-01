@@ -98,8 +98,7 @@ export function Header() {
             "pt-[var(--height)]",
 
 
-            // "opacity-0",
-            "border",
+            "opacity-0",
             "bg-transparent",
             "pointer-events-none",
             "-translate-y-4",
@@ -122,6 +121,7 @@ export function Header() {
                     "py-6 border-t first:border-none border-white/10",
                     "hover:text-white",
                     "group",
+                    "cursor-pointer"
                   )}
                 >
                   {item.title}<span className="ml-2 group-hover:ml-3 transition-all">{'→'}</span>
