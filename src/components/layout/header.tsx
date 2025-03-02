@@ -59,9 +59,9 @@ export function Header() {
 
         "transition-all duration-300",
 
-        "data-[scrolled]:bg-[#15181d]/90",
-        "data-[scrolled]:border-b-white/5",
-        "data-[scrolled]:shadow-xl",
+        "data-scrolled:bg-[#15181d]/90",
+        "data-scrolled:border-b-white/5",
+        "data-scrolled:shadow-xl",
       )}
       style={{
         // @ts-expect-error css variable
@@ -71,7 +71,7 @@ export function Header() {
       <div className="w-full max-w-[var(--mw-page)] mx-auto px-[var(--px-page)] flex flex-row items-center gap-4 text-nowrap">
 
         {/* Logo */}
-        <div className="flex-grow font-semibold text-2xl text-white leading-[40px] select-none">
+        <div className="grow font-semibold text-2xl text-white leading-[40px] select-none">
           <Link href="/">reactjs.id</Link>
         </div>
 
@@ -138,7 +138,7 @@ export function Header() {
 
 
         <nav className="hidden sm:block text-sm">
-          <ul className="flex flex-row items-center [&_a]:h-full [&_a]:px-4 gap-2 hover:[&_a]:text-white">
+          <ul className="flex flex-row items-center [&_a]:h-full [&_a]:px-4 gap-2 [&_a]:hover:text-white">
             {
               [
                 'Komunitas',
