@@ -15,7 +15,7 @@ export function HomeEventItem({ event }: HomeEventItemProps) {
         className="aspect-video w-full rounded-2xl object-cover drop-shadow-[0_4px_20px_0_rgba(17,29,44,0.48)] lg:w-80"
         alt=""
       />
-      <div className="flex w-full flex-grow flex-col justify-center gap-2 lg:gap-4">
+      <div className="flex w-full grow flex-col justify-center gap-2 lg:gap-4">
         <div className="flex flex-col gap-2 lg:gap-4">
           <h3 className="line-clamp-2 truncate text-wrap font-medium text-lg text-white lg:line-clamp-1 lg:text-4xl">
             {title}

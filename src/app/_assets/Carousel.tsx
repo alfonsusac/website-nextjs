@@ -83,10 +83,10 @@ function CarouselItem(
   return (
     <div
       className={cn(
-        "aspect-[4/3] w-[12rem] lg:w-[16rem] bg-white/50 shrink-0 rounded-xl lg:rounded-2xl overflow-hidden",
+        "aspect-4/3 w-48 lg:w-64 bg-white/50 shrink-0 rounded-xl lg:rounded-2xl overflow-hidden",
         "transition-all duration-300",
         "group-hover:brightness-50",
-        "hover:!brightness-100",
+        "hover:brightness-100!",
         "hover:rotate-0",
         "hover:scale-110",
         (i % imgCount) % 2 === 0 ? "rotate-3" : "-rotate-3",
@@ -103,12 +103,11 @@ function CarouselItem(
         "hover:after:left-full",
         "hover:after:duration-1000",
         "hover:after:transition-all",
-        "after:bg-gradient-to-r",
+        "after:bg-linear-to-r",
         "after:from-transparent",
         "after:via-white/10",
         "after:to-transparent",
         "after:-skew-x-12"
-        // "after:outline",
       )}>
       </div>
       <img

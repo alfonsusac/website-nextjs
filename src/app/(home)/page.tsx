@@ -43,7 +43,7 @@ export default function Home() {
           "flex justify-center items-end  flex-wrap-reverse lg:flex-nowrap gap-y-10"
         )}>
           {/* Left */}
-          <div className="flex-grow-[3] xs:min-w-[20rem] basis-0 z-10">
+          <div className="flex-grow-3 xs:min-w-80 basis-0 z-10">
             {/* Section Tag */}
             <SectionTag>Networking</SectionTag>
             <SectionHeader id="networking">
@@ -55,7 +55,7 @@ export default function Home() {
           </div>
 
           {/* Right */}
-          <div className="flex-grow-[1] xs:min-w-[20rem] basis-0 flex items-center justify-center">
+          <div className="flex-grow-1 xs:min-w-80 basis-0 flex items-center justify-center">
             <div
               className={cn(
                 'h-full flex-none w-[27rem] flex flex-wrap gap-2 select-none',
@@ -73,16 +73,16 @@ export default function Home() {
                 '--bg-faded': '#272E3788',
               }}
             >
-              <div className="w-[6rem] bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
+              <div className="w-[6rem] bg-linear-to-r from-transparent to-[var(--bg-faded)]" />
               <div className="bg-[var(--bg)]">Talkshow</div>
-              <div className="w-[4rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
-              <div className="w-[8rem] bg-gradient-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
+              <div className="w-[4rem] grow bg-linear-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
+              <div className="w-[8rem] bg-linear-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
               <div className="bg-[var(--bg)]">Workshop</div>
-              <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
-              <div className="bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
+              <div className="w-[7rem] grow bg-linear-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
+              <div className="bg-linear-to-r from-transparent to-[var(--bg-faded)]" />
               <div className="bg-[var(--bg)]">Meetup</div>
               <div className="bg-[var(--bg)]">Hackathon</div>
-              <div className="grow !px-0 bg-gradient-to-l from-transparent to-[var(--bg-faded)]" />
+              <div className="grow px-0! bg-linear-to-l from-transparent to-[var(--bg-faded)]" />
             </div>
           </div>
         </div>
@@ -156,7 +156,7 @@ radial-gradient(
 
       {/* Kontribusi */}
       <section className={cn("pt-20 pb-32 px-[var(--px-page)] ",
-        "bg-gradient-to-b from-primary/0 to-[#3cb0ca]/5"
+        "bg-linear-to-b from-primary/0 to-[#3cb0ca]/5"
       )}>
 
         <div className="mx-auto max-w-[var(--mw-content)]">
@@ -167,7 +167,7 @@ radial-gradient(
               <SectionTag>
                 Kontribusi
               </SectionTag>
-              <SectionHeader className="!text-wrap" id="kontribusi">
+              <SectionHeader className="text-wrap!" id="kontribusi">
                 Berkarya dan<br /> Berkontribusi
               </SectionHeader>
               <SectionText>
@@ -230,7 +230,7 @@ radial-gradient(
       </section>
 
       {/* Gabung ReactJS */}
-      <section className="pt-24 md:pt-28 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5 relative">
+      <section className="pt-24 md:pt-28 pb-40 px-[var(--px-page)] bg-linear-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5 relative">
 
         <div className="absolute inset-0 overflow-hidden  contain-layout flex justify-center">
           <MdiReact className="h-[80rem] w-[80rem] shrink-0 stroke-[#505a6933] stroke-[0.02] translate-x-40 animate-dash-offset" fill="transparent"

@@ -13,7 +13,7 @@ export function NetworkingSection({ events }: NetworkingSectionProps) {
   return (
     <section className="flex flex-col gap-14 px-4 pt-24 pb-24 md:gap-16 lg:gap-20 lg:px-10">
       <div className="container relative mx-auto flex flex-row items-center gap-4 lg:h-[237px]">
-        <div className="w-full flex-grow space-y-4 lg:max-w-[50%]">
+        <div className="w-full grow space-y-4 lg:max-w-[50%]">
           <div className="flex flex-wrap items-end gap-2.5">
             <h2 className="font-bold font-white text-3xl text-white lg:text-4xl">Networking</h2>
             <p className="inline-flex flex-wrap items-end gap-2.5">

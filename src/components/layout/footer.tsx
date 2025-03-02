@@ -17,14 +17,14 @@ export function Footer() {
         </div>
 
         <div className="w-full max flex flex-col md:flex-row items-end gap-4 gap-y-8 text-sm opacity-60">
-          <div className="w-full max-w-screen-md space-y-2">
+          <div className="w-full max-w-(--breakpoint-md) space-y-2">
             <h3 className="font-semibold text-white">React.js Indonesia</h3>
             <p>
               React.js Indonesia adalah komunitas developer React dan React Native terbesar di Indonesia, bertujuan untuk
               menghubungkan dan mendukung para developer.
             </p>
           </div>
-          <div className="flex flex-shrink-0 flex-grow justify-end">
+          <div className="flex shrink-0 grow justify-end">
             <p>Hak cipta &copy; React.js Indonesia</p>
           </div>
         </div>
