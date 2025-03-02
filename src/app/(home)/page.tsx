@@ -1,24 +1,18 @@
-import { CarouselSection } from '@/components/home/carousel-section';
-import { HeroSection } from '@/components/home/hero-section';
 import { ReactIDLogo } from '@/components/icons/reactjs-id';
-import { NetworkingSection } from '@/components/home/networking-section';
-import { heroPhotos } from '../_data/hero-photos';
-import { fakerEvents } from '../_data/faker-events';
-import NetworkingIllustration from '@/assets/networking.svg';
-import Image from 'next/image';
 import { cn } from 'lazy-cn';
-import React, { Fragment, type ComponentProps, type SVGProps } from 'react';
-import { Indonesia, IndonesiaAnimatedStroke } from '@/app/(home)/assets/Indonesia';
-import { LocationDot } from './assets/LocationDot';
-import { HeroCarousel } from './assets/Carousel';
+import React, { type ComponentProps, type SVGProps } from 'react';
+import { HeroCarousel } from '../_assets/Carousel';
 import { link_facebook, link_github, link_meetup, link_telegram, link_twitter } from '@/_content/links';
+import { IndonesiaHolograph } from '../_assets/IndonesiaHolo';
+import { LampGradientBackground } from '../_assets/LampGradient';
+import { featuredEvents } from '@/_content/events';
 
 export default function Home() {
   return (
     <>
+      {/* Background Layer */}
       <div className="absolute w-0 h-[40rem] top-0 left-1/2 -translate-x-1/2 -z-10 pointer-events-none contain-layout" >
-        <div
-          className="hero-gradient absolute w-[180rem] h-[40rem] -translate-y-1/2 rotate-[-45deg] left-1/2 -translate-x-[40%] pointer-events-none" />
+        <div className="hero-gradient absolute w-[180rem] h-[40rem] -translate-y-1/2 rotate-[-45deg] left-1/2 -translate-x-[40%] pointer-events-none" />
       </div>
 
       {/* Hero Section */}
@@ -29,260 +23,140 @@ export default function Home() {
             Komunitas Developer <br />
             ReactJS Indonesia
           </h1>
-          <p className="mt-5 text-pretty font-light text-xl sm:text-xl leading-8 sm:leading-8 max-w-[40rem]">
+          <SectionText className="mt-5 text-xl max-w-[40rem]">
             Temukan inspirasi dan bertumbuh bersama ribuan developer yang membangun masa depan digital dengan React di Indonesia.
-          </p>
-
-          <a
-            href="#join"
-            className={cn(
-              'mt-6 py-3 px-16 rounded-3xl',
-              'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.15rem_0.05rem_0px_#fff4,_inset_0_-0.4rem_1rem_0px_#fff2]',
-
-              'select-none',
-              'transition-all duration-75',
-
-              'font-medium',
-              'text-white',
-              'bg-[#3cb0ca]',
-              'hover:brightness-110',
-
-              'active:translate-y-0.5',
-            )}
-          >
+          </SectionText>
+          <LinkButton primary href="#join" className="mt-6 px-16">
             Masuk
-          </a>
+          </LinkButton>
         </div>
       </section>
 
       {/* Carousel */}
-      <section className="pt-12 lg:pt-16 ">
+      <section className="pt-16 lg:pt-20">
         <HeroCarousel />
       </section>
 
       {/* Networing */}
-      <section className="mb-32 mt-48 md:mt-52 px-[var(--px-page)]">
-        <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col items-start">
-          {/* Header */}
-          <section className="flex justify-center items-end w-full flex-wrap-reverse lg:flex-nowrap gap-y-10">
-            {/* Left */}
-            <div className="flex-grow-[3] basis-0">
-              {/* Section Tag */}
-              <SectionTag>
-                Networking
-              </SectionTag>
-              <SectionHeader id="networking">
-                Belajar & Berjejaring <br /> di Event Terbaru
-              </SectionHeader>
-              <SectionText className="mt-5">
-                Jangan lewatkan kesempatan untuk belajar, berbagi, dan berjejaring dengan sesama developer React di Indonesia!
-              </SectionText>
-              {/* <p className="mt-5 text-pretty text-lg sm:text-lg  max-w-[40rem] font-light">
-                Jangan lewatkan kesempatan untuk belajar, berbagi, dan berjejaring dengan sesama developer React di Indonesia!
-              </p> */}
-            </div>
-
-            {/* Right */}
-            <div className="flex-grow-[1] min-w-[20rem] basis-0 flex items-center justify-center">
-              <div
-                className={cn(
-                  'h-full flex-none w-[27rem] flex flex-wrap gap-2 select-none',
-                  '*:p-1',
-                  // '*:bg-[#272E37]',
-                  '*:h-14',
-                  '*:px-8',
-                  '*:flex',
-                  '*:items-center',
-                  '*:rounded-3xl',
-                  '*:text-lg',
-                )}
-                style={{
-                  // @ts-expect-error custom css props
-                  '--bg': '#272E37',
-                  '--bg-faded': '#272E3788',
-                }}
-              >
-                <div className="w-[6rem] bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
-                <div className="bg-[var(--bg)]">Talkshow</div>
-                <div className="w-[4rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
-                <div className="w-[8rem] bg-gradient-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
-                <div className="bg-[var(--bg)]">Workshop</div>
-                <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
-                <div className="bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
-                <div className="bg-[var(--bg)]">Meetup</div>
-                <div className="bg-[var(--bg)]">Hackathon</div>
-                <div className="grow !px-0 bg-gradient-to-l from-transparent to-[var(--bg-faded)]" />
-              </div>
-            </div>
-          </section>
-          {/* End of Header */}
-
-          {/* Featured Events */}
-          <div className="flex flex-col gap-8 w-full mt-16 max-w-[var(--mw-content-sm)] mx-auto">
-            <div className="text-[#505a69] text font-medium">
-              Reactjs.id Featured Events <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
-            </div>
-            {[
-              {
-                title: 'ReactID Bali Meetup',
-                date: new Date('2025-01-18T14:00:00+08:00'),
-                description:
-                  'Bergabunglah di ReactID Bali Meetup, sebuah acara kolaborasi antara GDG Bali, BaliJS, dan ReactID. Kesempatan emas untuk belajar, berbagi, dan memperluas jaringan dengan sesama developer React di Bali.',
-              },
-              {
-                title: 'Tech Meetup: Frontend Drama',
-                date: new Date('2024-07-27T13:00:00+07:00'),
-                description:
-                  'Meetup dan ngobrol santai seputar drama di dunia Frontend Web. Membahas situasi frontend saat ini, spesifik library/framework (React, Vue, Angular, dsb), arsitektur, komunitas, dsb',
-              },
-              {
-                title: 'Meetup #6',
-                date: new Date('2020-01-31T19:00:00+07:00'),
-                description:
-                  'Pelajari cara mengoptimalkan aplikasi React dengan Apollo serta meningkatkan performa menggunakan useCallback dan useMemo. Sesi ini cocok untuk pemula maupun developer berpengalaman yang ingin memperdalam keterampilan React!',
-              },
-            ].map((event, index) => (
-              <div key={event.title} className="flex flex-col xs:flex-row gap-6 items-center group cursor-pointer">
-                <div className="max-h-40 xs:h-28 sm:h-32 md:h-36 aspect-video shrink-0">
-                  <img src={`/events/_${ index + 1 }.png`} alt="" className="reactify-filter rounded-2xl [@media(pointer:fine)]:group-hover:scale-105 transition-all duration-300 group-hover:rotate-1 outline outline-white/10" />
-                </div>
-                <div className="flex flex-col gap-1 min-w-0">
-                  <div className="text-xl leading-none line-clamp-1 text-white ">
-                    {event.title}
-                  </div>
-                  <div className="opacity-40 leading-none mb-2 text-sm">
-                    {event.date.toDateString()}
-                  </div>
-                  <div className="opacity-80 line-clamp-2 text-sm">
-                    {event.description}
-                  </div>
-                  <div className="opacity-40 text-white mt-2 border-b self-start text-sm group-hover:opacity-100">
-                    Baca selanjutnya {'->'}
-                  </div>
-                </div>
-              </div>
-            ))}
-            <LinkButton className="self-start">
-              Lihat semua acara {'->'}
-            </LinkButton>
+      <section className="pb-32 pt-48 md:pt-52 px-[var(--px-page)]">
+        <div className={cn("mx-auto w-full max-w-[var(--mw-content)]",
+          "flex justify-center items-end  flex-wrap-reverse lg:flex-nowrap gap-y-10"
+        )}>
+          {/* Left */}
+          <div className="flex-grow-[3] xs:min-w-[20rem] basis-0 z-10">
+            {/* Section Tag */}
+            <SectionTag>Networking</SectionTag>
+            <SectionHeader id="networking">
+              Belajar & Berjejaring <br /> di Event Terbaru
+            </SectionHeader>
+            <SectionText className="mt-5">
+              Jangan lewatkan kesempatan untuk belajar, berbagi, dan berjejaring dengan sesama developer React di Indonesia!
+            </SectionText>
           </div>
+
+          {/* Right */}
+          <div className="flex-grow-[1] xs:min-w-[20rem] basis-0 flex items-center justify-center">
+            <div
+              className={cn(
+                'h-full flex-none w-[27rem] flex flex-wrap gap-2 select-none',
+                '*:p-1',
+                '*:h-14',
+                '*:px-8',
+                '*:flex',
+                '*:items-center',
+                '*:rounded-3xl',
+                '*:text-lg',
+              )}
+              style={{
+                // @ts-expect-error custom css props
+                '--bg': '#272E37',
+                '--bg-faded': '#272E3788',
+              }}
+            >
+              <div className="w-[6rem] bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
+              <div className="bg-[var(--bg)]">Talkshow</div>
+              <div className="w-[4rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
+              <div className="w-[8rem] bg-gradient-to-r via-transparent from-transparent to-[var(--bg-faded)]" />
+              <div className="bg-[var(--bg)]">Workshop</div>
+              <div className="w-[7rem] grow bg-gradient-to-l via-transparent from-transparent to-[var(--bg-faded)]" />
+              <div className="bg-gradient-to-r from-transparent to-[var(--bg-faded)]" />
+              <div className="bg-[var(--bg)]">Meetup</div>
+              <div className="bg-[var(--bg)]">Hackathon</div>
+              <div className="grow !px-0 bg-gradient-to-l from-transparent to-[var(--bg-faded)]" />
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Events */}
+        <div className="flex flex-col gap-14 xs:gap-8 w-full mt-16 max-w-[var(--mw-content-sm)] mx-auto">
+          <div className="text-[#505a69] text font-medium">
+            Reactjs.id Featured Events
+            w<IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
+          </div>
+          {featuredEvents.map((event) => (
+            <div key={event.title} className="flex flex-col xs:flex-row gap-6 items-start xs:items-center group cursor-pointer">
+              <div className="max-h-40 xs:h-28 sm:h-32 md:h-36 aspect-video shrink-0">
+                <img src={event.image} alt="" className="reactify-filter rounded-2xl [@media(pointer:fine)]:group-hover:scale-105 transition-all duration-300 group-hover:rotate-1 outline outline-white/10" />
+              </div>
+              <div className="flex flex-col gap-1 min-w-0">
+                <div className="text-xl leading-none line-clamp-1 text-white ">
+                  {event.title}
+                </div>
+                <div className="opacity-40 leading-none mb-2 text-sm">
+                  {event.date.toDateString()}
+                </div>
+                <div className="opacity-80 line-clamp-2 text-sm">
+                  {event.description}
+                </div>
+                <div className="opacity-40 text-white mt-2 border-b self-start text-sm group-hover:opacity-100">
+                  Baca selanjutnya {'->'}
+                </div>
+              </div>
+            </div>
+          ))}
+          <LinkButton className="self-start">
+            Lihat semua acara {'->'}
+          </LinkButton>
         </div>
       </section>
 
       {/* Kolaborasi */}
-      <section className="mb-20 mt-20 md:mt-20 px-[var(--px-page)]">
-        <div className="absolute w-[80rem] h-[40rem] z-10 left-1/2 -translate-x-1/2 -translate-y-60 pointer-events-none contain-layout circle-mask">
-          <div
-            className="lamp-gradient absolute w-[50%] h-[100%] pointer-events-none" />
-          <div
-            className="lamp-gradient absolute w-[50%] h-[100%] left-1/2 pointer-events-none -scale-x-100" />
-        </div>
+      <section className="py-24 md:py-28 px-[var(--px-page)]">
+
+        <LampGradientBackground
+          className="w-[80rem] h-[60rem] z-10 -translate-y-[20rem]"
+          gradient={`
+conic-gradient(
+  from 0.25turn at 80% 25%,
+  #a8e0ed, 1deg, #41dcff11, 280deg, #16181D00
+)
+            `}
+          mask={`
+radial-gradient(
+    50% 50% at 50% 50%,
+    #000 0%,
+    #000 0%,
+    #0000 100%
+)
+          `}
+        />
+
         <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col-reverse gap-8 sm:flex-col  items-center text-center">
-          <div className="">
-            <SectionTag>
-              Kolaborasi
-            </SectionTag>
-            <SectionHeader id="kolaborasi">
-              Kolaborasi dengan <br />Developer Se-Indonesia
-            </SectionHeader>
+          <header>
+            <SectionTag>Kolaborasi</SectionTag>
+            <SectionHeader id="kolaborasi">Kolaborasi dengan <br />Developer Se-Indonesia</SectionHeader>
             <SectionText className="max-w-[40rem] mx-auto">
               Bangun koneksi dan temukan inspirasi dari komunitas React di berbagai kota.
             </SectionText>
-          </div>
-
-
-          <div
-            className="w-full"
-            style={{
-              perspective: '1000px',
-            }}
-          >
-
-            <div
-              className="relative "
-              style={{
-                transform: 'rotateX(40deg) scale(1.2)',
-                transformStyle: 'preserve-3d'
-              }}
-            >
-              {
-                [
-                  { x: 0, y: 30, label: "Aceh" },
-                  { x: 55, y: 61, label: "Medan" },
-                  { x: 85, y: 127, label: "Bukittinggi" },
-                  { x: 118, y: 186, label: "Bengkulu" },
-                  { x: 196, y: 229, label: "Jakarta" },
-                  { x: 209, y: 242, label: "Bandung" },
-                  { x: 256, y: 258, label: "Yogyakarta" },
-                  { x: 298, y: 248, label: "Surabaya" },
-                  { x: 341, y: 272, label: "Ubud" },
-                  { x: 452, y: 275, label: "Ende" },
-                  { x: 329, y: 180, label: "Banjarmasin" },
-                  { x: 418, y: 212, label: "Makassar" },
-                  { x: 567, y: 187, label: "Kota Ambon" },
-                  { x: 782, y: 168, label: "Jaya Pura" },
-                ].map(({ x, y, label }, index) => (
-                  <LocationDot
-                    key={`${ x }-${ y }`}
-                    x={x}
-                    y={y}
-                    index={index}
-                    label={label}
-                  />
-                ))
-              }
-              <Indonesia
-                className="relative z-10"
-                fill={"#343B47"}
-              />
-              <Indonesia
-                className=" absolute inset-0 -z-10 top-2 scale-[0.995]"
-                stroke={"#7bb9c722"}
-              />
-              <Indonesia
-                className="absolute inset-0 -z-10 top-4 scale-[0.99]"
-                stroke={"#7bb9c711"}
-              />
-              <IndonesiaAnimatedStroke
-                dashLength={20}
-                className="z-10 absolute inset-0"
-                stroke={"#7bb9c788"}
-              />
-              {
-                [
-                  12, 10, 8
-                ].map(
-                  (l) => {
-                    return (
-                      <IndonesiaAnimatedStroke
-                        key={l}
-                        dashLength={l}
-                        className="z-10 absolute inset-0 indonesia-mask"
-                        stroke={"#343B4788"}
-                      />
-                    )
-                  }
-                )
-              }
-              <div
-                className="absolute inset-0 indonesia-mask-stroke"
-              />
-              <div className="-z-10 absolute inset-0 bg-[url('/grid1.svg')] opacity-10 indonesia-mask"
-                style={{
-                  transform: 'translateZ(-1px)',
-                  backgroundSize: '4.05%',
-                }}
-              />
-            </div>
-          </div>
+          </header>
+          <IndonesiaHolograph />
         </div>
+
       </section>
-      {/* End of Kolaborasi */}
 
       {/* Kontribusi */}
-      <section className={cn(
-        "py-20 md:py-24 pb-40 px-[var(--px-page)] ",
-        "bg-gradient-to-b from-[#3cb0ca]/0 to-[#3cb0ca]/5"
+      <section className={cn("pt-20 pb-32 px-[var(--px-page)] ",
+        "bg-gradient-to-b from-primary/0 to-[#3cb0ca]/5"
       )}>
 
         <div className="mx-auto max-w-[var(--mw-content)]">
@@ -356,7 +230,7 @@ export default function Home() {
       </section>
 
       {/* Gabung ReactJS */}
-      <section className="pt-20 md:pt-24 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5 relative">
+      <section className="pt-24 md:pt-28 pb-40 px-[var(--px-page)] bg-gradient-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5 relative">
 
         <div className="absolute inset-0 overflow-hidden  contain-layout flex justify-center">
           <MdiReact className="h-[80rem] w-[80rem] shrink-0 stroke-[#505a6933] stroke-[0.02] translate-x-40 animate-dash-offset" fill="transparent"
@@ -438,15 +312,18 @@ export default function Home() {
 }
 
 function LinkButton(
-  { className, ...props }: ComponentProps<'a'>
+  { className, primary, ...props }: ComponentProps<'a'> & {
+    primary?: boolean
+  }
 ) {
   return (
     <a
+      target="_blank"
       {...props}
       className={cn(
         'py-3 px-8 rounded-3xl',
         'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.1rem_0.05rem_0px_#fff1,_inset_0_-0.4rem_1rem_0px_#252b35]',
-
+        'cursor-pointer',
         'select-none',
         'transition-all duration-75',
 
@@ -457,6 +334,13 @@ function LinkButton(
         'hover:text-white',
 
         'active:translate-y-0.5',
+
+        primary && [
+          'font-medium',
+          'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.15rem_0.05rem_0px_#fff4,_inset_0_0.5rem_1rem_0px_#0c30546a]',
+          'text-white',
+          'bg-[#3cb0ca]',
+        ],
 
         className,
       )}
@@ -532,7 +416,7 @@ function SectionText(
 ) {
   return (
     <p className={cn(
-      "mt-5 text-pretty text-lg xs:text-lg sm:text-lg font-light",
+      "mt-5 text-pretty text-lg font-light",
       className
     )} {...props} />
   )

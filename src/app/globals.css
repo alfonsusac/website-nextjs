@@ -4,10 +4,10 @@
 
 
 .lamp-gradient {
-  background: conic-gradient(
+  background: var(--lamp-gradient-value, conic-gradient(
     from 0.25turn at 80% 25%,
-    #a8e0ed, 1deg, #41dcff11, 350deg, #16181D
-  );
+    #a8e0ed, 1deg, #41dcff11, 280deg, #16181D00
+  ));
 }
 .circle-mask {
   mask-image: radial-gradient(
@@ -16,6 +16,17 @@
     #000 50%,
     #0000 100%
   )
+}
+.center-x{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.background-art{
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  @apply -translate-x-1/2
 }
 
 .hero-gradient {

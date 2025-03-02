@@ -20,7 +20,7 @@ const config: Config = {
       screens: {
         xs: "480px",
         xxs: "320px",
-      }
+      },
     },
   },
   plugins: [],

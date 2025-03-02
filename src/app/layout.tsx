@@ -5,7 +5,6 @@ import './globals.css';
 import { Header } from '@/components/layout/header';
 import { LayoutRoot } from '@/components/layout/layout-root';
 import { Footer } from '@/components/layout/footer';
-import type { CSSProperties } from 'react';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,13 +17,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ GeistSans.variable } ${ GeistMono.variable }`}>
-      <body className="h-full min-h-screen text-[var(--foreground-hex)] bg-[var(--background-hex)]">
+    <html
+      lang="en"
+      className={`${ GeistSans.variable } ${ GeistMono.variable }`}
+      style={{
+        scrollBehavior: 'smooth',
+      }}
+    >
+      <body
+        className="h-full min-h-screen text-[var(--foreground-hex)] bg-[var(--background-hex)]"
+      >
         <style>
           {`
 :root {
   --foreground-hex: #c7cbd1;
   --background-hex: #15181d;
+
+  --primary: #3cb0ca;
+
   --mw-page: 1080px;
   --mw-content: 860px;
   --mw-content-sm: 720px;
