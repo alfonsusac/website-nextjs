@@ -29,7 +29,7 @@ export function LocationDot(
           animationDelay: `${ - index * 13 }s`,
         }}
       />
-      <div className="absolute -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2 w-12 h-12 peer"
+      <div className="absolute top-1/2 left-1/2 w-12 h-12 peer"
         style={{
           transform: 'translateZ(1px) translateX(-50%) translateY(-50%)',
           animationDelay: `${ - index * 13 }s`,

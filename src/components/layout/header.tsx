@@ -35,21 +35,18 @@ const headerNavItem: {
 export function Header() {
   const headerRef = useElevatedHeader()
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-
-    function onResize() {
-      setIsMobileMenuOpen(false)
-    }
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-
-  }, [])
+  const {
+    isMobileMenuOpen,
+    toggleMobileMenu,
+  } = useMobileNavbar()
 
   return (
     <header
       ref={headerRef}
+      style={{
+        // @ts-expect-error css variable
+        "--height": '4rem',
+      }}
       className={cn(
         "flex h-[var(--height)]",
         "sticky top-0",
@@ -59,33 +56,35 @@ export function Header() {
 
         "transition-all duration-300",
 
-        "data-scrolled:bg-[#15181d]/90",
-        "data-scrolled:border-b-white/5",
+        "data-scrolled:bg-background/90",
+        "data-scrolled:border-b-foreground/5",
         "data-scrolled:shadow-xl",
+
+        "px-page-px",
       )}
-      style={{
-        // @ts-expect-error css variable
-        "--height": '4rem',
-      }}
     >
-      <div className="w-full max-w-[var(--mw-page)] mx-auto px-[var(--px-page)] flex flex-row items-center gap-4 text-nowrap">
+      <div className={cn(
+        "container-page",
+        "w-full max-w-page mx-auto text-nowrap",
+        "flex items-center justify-between gap-4",
+      )}>
 
         {/* Logo */}
-        <div className="grow font-semibold text-2xl text-white leading-[40px] select-none">
-          <Link href="/">reactjs.id</Link>
-        </div>
+        <Link
+          href="/"
+          className={cn(
+            "block py-2 offset-x-4 font-semibold text-xl select-none",
+            "select-none",
+            "text-foreground-loud/90 hover:text-foreground-loud",
+          )}
+        >
+          reactjs.id
+        </Link>
 
         {/* Hamburger Menu */}
         <div
-          onClick={() => {
-            if (isMobileMenuOpen) {
-              document.body.style.overflow = ''
-            } else {
-              document.body.style.overflow = 'hidden'
-            }
-            setIsMobileMenuOpen(!isMobileMenuOpen)
-          }}
-          className="sm:hidden p-2 hover:bg-zinc-500/20 w-10 h-10 rounded-md">
+          onClick={toggleMobileMenu}
+          className="sm:hidden p-2 hover:bg-foreground/5 w-10 h-10 rounded-md">
           <IconParkOutlineHamburgerButton className="w-full h-full" />
         </div>
 
@@ -97,7 +96,6 @@ export function Header() {
             "-z-10",
             "pt-[var(--height)]",
 
-
             "opacity-0",
             "bg-transparent",
             "pointer-events-none",
@@ -105,7 +103,7 @@ export function Header() {
 
             isMobileMenuOpen && [
               "opacity-100",
-              "bg-[var(--background-hex)]",
+              "bg-background",
               "pointer-events-auto",
               "translate-y-0",
             ],
@@ -118,8 +116,8 @@ export function Header() {
               headerNavItem.map(item => (
                 <Link href={`/${ item.title.toLowerCase() }`} key={item.title}
                   className={cn(
-                    "py-6 border-t first:border-none border-white/10",
-                    "hover:text-white",
+                    "py-6 border-t first:border-none border-foreground/10",
+                    "hover:text-foreground-loud",
                     "group",
                     "cursor-pointer"
                   )}
@@ -135,10 +133,8 @@ export function Header() {
           </div>
         </nav>
 
-
-
         <nav className="hidden sm:block text-sm">
-          <ul className="flex flex-row items-center [&_a]:h-full [&_a]:px-4 gap-2 [&_a]:hover:text-white">
+          <ul className="flex flex-row items-center [&_a]:h-full [&_a]:px-4 gap-2 [&_a]:hover:text-foreground-loud">
             {
               [
                 'Komunitas',
@@ -156,6 +152,7 @@ export function Header() {
             }
           </ul>
         </nav>
+
       </div>
     </header>
   );
@@ -166,6 +163,31 @@ function IconParkOutlineHamburgerButton(props: SVGProps<SVGSVGElement>) {
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" {...props}><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M7.95 11.95h32m-32 12h32m-32 12h32"></path></svg>
   )
 }
+
+
+
+function useMobileNavbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    function onResize() {
+      setIsMobileMenuOpen(false)
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  const toggleMobileMenu = () => {
+    document.body.style.overflow = isMobileMenuOpen
+      ? ''
+      : 'hidden'
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  return { isMobileMenuOpen, toggleMobileMenu }
+}
+
+
 
 function useElevatedHeader() {
   const ref = useRef<HTMLDivElement>(null);

@@ -16,30 +16,30 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-14 px-[var(--px-page)]">
-        <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col items-start sm:items-center   sm:text-center">
+      <section className="px-page-px pt-14 ">
+        <div className="container-content flex w-full flex-col items-start sm:items-center sm:text-center">
           <ReactIDLogo className="h-10" />
           <h1 className="mt-8 text-pretty font-bold text-5xl md:text-6xl lg:text-6xl text-white tracking-tighter">
             Komunitas Developer <br />
             ReactJS Indonesia
           </h1>
-          <SectionText className="mt-5 text-xl max-w-[40rem]">
+          <SectionText className="mt-6 text-xl max-w-160">
             Temukan inspirasi dan bertumbuh bersama ribuan developer yang membangun masa depan digital dengan React di Indonesia.
           </SectionText>
-          <LinkButton primary href="#join" className="mt-6 px-16">
+          <LinkButton primary href="#join" className="mt-8 px-16">
             Masuk
           </LinkButton>
         </div>
       </section>
 
       {/* Carousel */}
-      <section className="pt-16 lg:pt-20">
+      <section className="pt-20 lg:pt-20">
         <HeroCarousel />
       </section>
 
       {/* Networing */}
-      <section className="pb-32 pt-48 md:pt-52 px-[var(--px-page)]">
-        <div className={cn("mx-auto w-full max-w-[var(--mw-content)]",
+      <section className="px-page-px pb-32 pt-48 md:pt-52">
+        <div className={cn("container-content",
           "flex justify-center items-end  flex-wrap-reverse lg:flex-nowrap gap-y-10"
         )}>
           {/* Left */}
@@ -88,18 +88,24 @@ export default function Home() {
         </div>
 
         {/* Featured Events */}
-        <div className="flex flex-col gap-14 xs:gap-8 w-full mt-16 max-w-[var(--mw-content-sm)] mx-auto">
-          <div className="text-[#505a69] text font-medium">
+        <div className="container-content-sm flex flex-col items-start gap-14 xs:gap-8 mt-16">
+          <div className="text-muted text font-medium">
             Reactjs.id Featured Events
-            w<IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
+            <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
           </div>
           {featuredEvents.map((event) => (
-            <div key={event.title} className="flex flex-col xs:flex-row gap-6 items-start xs:items-center group cursor-pointer">
+            <div key={event.title} className="group flex gap-6 flex-col items-start xs:flex-row xs:items-center cursor-pointer">
               <div className="max-h-40 xs:h-28 sm:h-32 md:h-36 aspect-video shrink-0">
-                <img src={event.image} alt="" className="reactify-filter rounded-2xl [@media(pointer:fine)]:group-hover:scale-105 transition-all duration-300 group-hover:rotate-1 outline outline-white/10" />
+                <img
+                  src={event.image}
+                  alt=""
+                  className={cn(
+                    "reactify-filter rounded-2xl transition-all duration-300 outline outline-muted/30",
+                    "pointer-fine:group-hover:scale-105",
+                  )} />
               </div>
-              <div className="flex flex-col gap-1 min-w-0">
-                <div className="text-xl leading-none line-clamp-1 text-white ">
+              <div className="flex flex-col gap-1 min-w-0 pointer-fine:group-hover:text-foreground-loud">
+                <div className="text-xl leading-none line-clamp-1">
                   {event.title}
                 </div>
                 <div className="opacity-40 leading-none mb-2 text-sm">
@@ -108,20 +114,18 @@ export default function Home() {
                 <div className="opacity-80 line-clamp-2 text-sm">
                   {event.description}
                 </div>
-                <div className="opacity-40 text-white mt-2 border-b self-start text-sm group-hover:opacity-100">
+                <div className="opacity-40 mt-2 self-start text-sm">
                   Baca selanjutnya {'->'}
                 </div>
               </div>
             </div>
           ))}
-          <LinkButton className="self-start">
-            Lihat semua acara {'->'}
-          </LinkButton>
+          <LinkButton>Lihat semua acara {'->'}</LinkButton>
         </div>
       </section>
 
       {/* Kolaborasi */}
-      <section className="py-24 md:py-28 px-[var(--px-page)]">
+      <section className="px-page-px py-24 md:py-28">
 
         <LampGradientBackground
           className="w-[80rem] h-[60rem] z-10 -translate-y-[20rem]"
@@ -141,7 +145,7 @@ radial-gradient(
           `}
         />
 
-        <div className="mx-auto flex w-full max-w-[var(--mw-content)] flex-col-reverse gap-8 sm:flex-col  items-center text-center">
+        <div className="container-content flex flex-col-reverse gap-8 sm:flex-col items-center text-center">
           <header>
             <SectionTag>Kolaborasi</SectionTag>
             <SectionHeader id="kolaborasi">Kolaborasi dengan <br />Developer Se-Indonesia</SectionHeader>
@@ -155,15 +159,15 @@ radial-gradient(
       </section>
 
       {/* Kontribusi */}
-      <section className={cn("pt-20 pb-32 px-[var(--px-page)] ",
-        "bg-linear-to-b from-primary/0 to-[#3cb0ca]/5"
+      <section className={cn("pt-20 pb-32 px-page-px ",
+        "bg-linear-to-b from-accent/0 to-accent/5"
       )}>
 
-        <div className="mx-auto max-w-[var(--mw-content)]">
+        <div className="container-content">
 
           <div className="flex flex-col md:flex-row gap-y-8 gap-x-2 flex-wrap">
 
-            <div className="max-w-[30rem] flex-1">
+            <div className="max-w-120 flex-1">
               <SectionTag>
                 Kontribusi
               </SectionTag>
@@ -176,21 +180,25 @@ radial-gradient(
             </div>
 
             <div className={cn(
-              "flex-1 max-w-[var(--mw-content-sm)]",
+              "flex-1 max-w-content-sm",
               "flex flex-col gap-6",
             )}>
-              <div className="text-[#505a69] text font-medium">
-                Reactjs.id Current Projects <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
+              <div className="text-muted font-medium">
+                Reactjs.id Current Projects
+                <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
               </div>
-              <div className="flex flex-col gap-2 max-w-[30rem]">
+              <div className="flex flex-col gap-2 max-w-120">
 
                 {/* Ideally this part should also fetch CMS to maintain the list */}
 
                 {/* Ideally this should points to a project page first */}
                 {/* Because we need new-comers to contact "PIC" from the telegram group to allow contribution */}
-                <a href="https://github.com/reactjs/id.react.dev" target="_blank" className="w-full flex flex-col gap-2 p-5 border rounded-2xl border-[#505a69]/20 hover:bg-white/5 cursor-pointer">
-                  <div className="text-white text-lg">
-                    Dokumentasi React.js Bahasa Indonesia <IcBaselineLaunch className="inline align-[-0.2rem] text-[#505a69]" />
+                <a
+                  href="https://github.com/reactjs/id.react.dev"
+                  target="_blank"
+                  className="w-full flex flex-col gap-2 p-5 border rounded-2xl border-muted/20 hover:bg-foreground/5 cursor-pointer">
+                  <div className="text-foreground-loud text-lg">
+                    Dokumentasi React.js Bahasa Indonesia <IcBaselineLaunch className="inline align-[-0.2rem] text-muted" />
                   </div>
                   <div className="font-light opacity-60 text-sm">
                     Bantu menerjemahkan dan menyempurnakan dokumentasi React dalam Bahasa Indonesia, agar lebih banyak developer bisa belajar dengan mudah.
@@ -203,9 +211,13 @@ radial-gradient(
 
                 </a>
 
-                <a href="https://github.com/reactjs-id/website-nextjs" target="_blank" className="w-full flex flex-col gap-2 p-5 border rounded-2xl border-[#505a69]/20 hover:bg-white/5 cursor-pointer">
+                <a
+                  href="https://github.com/reactjs-id/website-nextjs"
+                  target="_blank"
+                  className="w-full flex flex-col gap-2 p-5 border rounded-2xl border-muted/20 hover:bg-foreground/5 cursor-pointer">
                   <div className="text-white text-lg">
-                    Website React.js Indonesia <IcBaselineLaunch className="inline align-[-0.2rem] text-[#505a69]" />
+                    Website React.js Indonesia
+                    <IcBaselineLaunch className="inline align-[-0.2rem] text-muted" />
                   </div>
                   <div className="font-light opacity-60 text-sm">
                     Kembangkan dan tingkatkan situs komunitas ReactJS Indonesia, tempat developer bisa menemukan informasi, acara, dan proyek terbaru.
@@ -230,20 +242,20 @@ radial-gradient(
       </section>
 
       {/* Gabung ReactJS */}
-      <section className="pt-24 md:pt-28 pb-40 px-[var(--px-page)] bg-linear-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-white/5 relative">
+      <section className="px-page-px pt-24 md:pt-28 pb-40 bg-linear-to-b from-transparent via-[#0e1114] to-[#0e1114] border-b border-b-foreground/5 relative">
 
         <div className="absolute inset-0 overflow-hidden  contain-layout flex justify-center">
-          <MdiReact className="h-[80rem] w-[80rem] shrink-0 stroke-[#505a6933] stroke-[0.02] translate-x-40 animate-dash-offset" fill="transparent"
+          <MdiReact className="h-[80rem] w-[80rem] shrink-0 stroke-[#505a6933] stroke-[0.02] translate-x-40 animate-dash-offset " fill="transparent"
             style={{
               strokeDasharray: '0.3 0.1 0.2 0.1',
             }}
           />
         </div>
 
-        <div className="mx-auto max-w-[var(--mw-content)] flex w-full flex-col items-start relative z-10">
+        <div className="container-content flex flex-col items-start z-10">
 
           {/* Header */}
-          <section className="flex flex-col items-center text-center w-full max-w-[var(--mw-content-sm)] mx-auto flex-wrap-reverse lg:flex-nowrap">
+          <section className="flex flex-col items-center text-center container-content-sm flex-wrap-reverse lg:flex-nowrap">
             <SectionTag separator="Join" />
             <SectionHeader id="join">
               Gabung dan Jadi Bagian <br /> dari Komunitas!
@@ -255,7 +267,7 @@ radial-gradient(
           {/* End of Header */}
 
           {/* Social Links */}
-          <div className="w-full mt-16 max-w-[var(--mw-content-sm)] mx-auto">
+          <div className="w-full mt-16 container-content-sm">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {
                 [
@@ -289,16 +301,15 @@ radial-gradient(
                     key={index}
                     className="relative overflow-hidden group flex flex-col gap-1 *:shrink-0"
                   >
-                    <social.icon className="w-[1.5em] h-[1.5em] inline mr-1.5 mb-1 align-[-0.2rem] text-[#3b4961]" fill="currentColor" />
-                    <div className="text-lg text-white tracking-tight z-10">
+                    <social.icon className="w-[1.5em] h-[1.5em] inline mr-1.5 mb-1 align-[-0.2rem] text-muted" fill="currentColor" />
+                    <div className="text-lg text-foreground-loud tracking-tight z-10">
                       {social.title} <span className="text-nowrap tracking-normal">{'->'}</span>
                     </div>
                     <div className="z-10 opacity-80 text-sm">
                       {social.description}
                     </div>
                     <div className="absolute -bottom-20 right-0 text-[8rem] fill-[#212834] group-hover:-bottom-10 transition-all">
-                      <social.icon className="w-60 h-60"
-                      />
+                      <social.icon className="w-60 h-60" />
                     </div>
                   </SocialLink>
                 ))
@@ -339,7 +350,7 @@ function LinkButton(
           'font-medium',
           'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.15rem_0.05rem_0px_#fff4,_inset_0_0.5rem_1rem_0px_#0c30546a]',
           'text-white',
-          'bg-[#3cb0ca]',
+          'bg-accent',
         ],
 
         className,
@@ -351,28 +362,14 @@ function LinkButton(
 function SocialLink(
   { className, ...props }: ComponentProps<'a'>
 ) {
+
   return (
-    <a
-      {...props}
+    <LinkButton
       className={cn(
-        "px-6 py-5 text-start min-h-32 sm:min-h-40 flex flex-col justify-end cursor-pointer",
-
-        'rounded-3xl',
-        'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.1rem_0.05rem_0px_#fff1,_inset_0_-0.4rem_1rem_0px_#252b35]',
-
-        'select-none',
-        'transition-all duration-75',
-
-        'font-normal',
-        'text-white/80',
-        'bg-[#1B212A]',
-        'hover:brightness-110',
-        'hover:text-white',
-
-        'active:translate-y-0.5',
-
-        className,
+        "px-6 py-5 min-h-32 sm:min-h-40 flex flex-col justify-end",
+        className
       )}
+      {...props}
     />
   )
 }

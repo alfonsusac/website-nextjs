@@ -1,6 +1,17 @@
 @import 'tailwindcss';
 
+:root {
+  --px-page: 1.5rem;
+}
+@media (min-width: 640px) {
+  :root {
+    --px-page: 2rem;
+  }
+}
+
+
 @theme {
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
@@ -12,7 +23,36 @@
 
   --breakpoint-xs: 480px;
   --breakpoint-xxs: 320px;
+  --breakpoint-page: 1080px;
+
+  --color-foreground-loud: #fff;
+  --color-foreground: #c7cbd1;
+  --color-background: #15181d;
+  --color-muted: #505a69;
+  --color-accent: #3cb0ca;
+
+  --max-w-page: 1080px;
+  --max-w-content: 860px;
+  --max-w-content-sm: 720px;
+
+  --px-page-px: var(--px-page);
 }
+
+@utility max-w-* {
+  max-width: --value(--max-w-*);
+}
+@utility px-* {
+  padding-inline: --value(--px-*);
+}
+@utility container-* {
+  margin-inline: auto;
+  max-width: --value(--max-w-*);
+}
+@utility offset-x-* {
+  margin-inline-start: calc(--value(number) * -0.25rem);
+  padding-inline: calc(--value(number) * 0.25rem)
+}
+@custom-variant pointer-fine (@media(pointer: fine));
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -29,6 +69,10 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  a {
+    cursor: pointer;
   }
 }
 
