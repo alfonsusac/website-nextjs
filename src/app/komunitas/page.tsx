@@ -4,8 +4,14 @@ import { cn } from "lazy-cn"
 import { Fragment, type ComponentProps, type SVGProps } from "react"
 import { HugeiconsTree06, IconParkOutlineCircularConnection, MaterialSymbolsGlobe, PhCalendarCheckFill, PhFacebookLogoFill, PhUsersFill } from "../../components/Icons"
 import { SectionGabungKami } from "@/components/GabungSection"
+import { getAllGitHubContributors } from "@/util/data"
+import { contributors } from "@/_content/contributors"
 
-export default function KomunitasPage() {
+export default async function KomunitasPage() {
+
+  await getAllGitHubContributors()
+
+
   return <>
     <SectionTentangKami className="px-page-px pt-18 *:container-content-xs" />
     <SectionGabungKami className="px-page-px *:container-content-xs" asArticle />
@@ -16,6 +22,13 @@ export default function KomunitasPage() {
 function SectionTentangKami(
   props: ComponentProps<'section'>
 ) {
+
+
+  const allContributors = [
+    ...communityInfo.contributors.map(e => e.github),
+    ...contributors
+  ]
+
   return <section {...props} >
     <div className="article-style-prose">
       <ReactIDLogo className="h-5 mb-3" />
@@ -56,10 +69,10 @@ function SectionTentangKami(
         Past Contributors
       </h4>
       <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-y-2 gap-x-3 my-8">
-        {communityInfo.contributors.map((member, index) => (
+        {contributors.map((member, index) => (
           <a
             key={index}
-            href={member.github}
+            href={member}
             target="_blank"
             className={cn(
               "flex gap-3 flex-1 items-center pointer-fine:hover:bg-foreground/5 rounded-3xl py-2 offset-x-2",
@@ -69,13 +82,13 @@ function SectionTentangKami(
             )}
           >
             <img
-              src={member.github + '.png'}
-              alt={member.name ?? member.github.split('/').at(-1)}
+              src={'https://github.com/' + member + '.png'}
+              alt={member.split('/').at(-1)}
               className="rounded-full overflow-clip w-6 h-6 shrink-0"
             />
             <div className="text-sm font-normal">
               <div className="line-clamp-1 ">
-                {member.name ?? member.github.split('/').at(-1)}
+                {member.split('/').at(-1)}
               </div>
             </div>
           </a>
