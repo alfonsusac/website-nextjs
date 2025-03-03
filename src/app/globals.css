@@ -28,12 +28,13 @@
   --color-foreground: #c7cbd1;
   --color-background: #15181d;
   --color-muted: #505a69;
-  --color-muted-2: #96a2b9;
+  --color-muted-2: #96a9b9;
   --color-accent: #3cb0ca;
 
   --max-w-page: 1080px;
   --max-w-content: 860px;
   --max-w-content-sm: 720px;
+  --max-w-content-xs: 600px;
 
   --px-page-px: var(--px-page);
 }
@@ -59,11 +60,11 @@
   @apply
     font-light
     [&_h1,h2,h3,h4,h5,p]:leading-[1.5]
-    [&_h1]:text-5xl
+    [&_h1]:text-[3rem]
     [&_h1]:text-foreground-loud
     [&_h1]:font-semibold
     [&_h1]:tracking-tight
-    [&_h1]:leading-none!
+    [&_h1]:leading-none
     [&_h1]:mb-2
 
     [&_h2]:mt-24
@@ -86,6 +87,25 @@
 
     [&>hr]:border-muted
     [&>hr]:my-14
+
+    [&>p,&>ol]:my-[1lh]
+
+    [&>p>a]:underline
+    [&>p>a]:underline-offset-4
+    [&>p>a]:decoration-foreground/40
+    [&>p>a]:text-foreground/80
+    [&>p>a]:hover:decoration-foreground/60
+    [&>p>a]:hover:text-foreground-loud
+
+    [&>ol>li]:list-decimal
+    [&>*>li]:ml-6
+    [&>*>li]:pl-2
+    [&>*>li]:my-2
+
+    [&>a.link-button]:px-5
+    [&>a.link-button]:text-sm
+    [&>a.link-button]:rounded-xl
+
 }
 
 /*

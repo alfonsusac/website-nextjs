@@ -15,8 +15,10 @@ export function LinkButton<NextLink extends boolean = false>(
 
   return (
     <LinkComponent
+      target={props.href.startsWith('/') ? undefined : '_blank'}
       {...props}
       className={cn(
+        'link-button',
         'py-3 px-8 rounded-3xl',
         'shadow-[0_0.4rem_0.4rem_0px_#0002,_inset_0_0.1rem_0.05rem_0px_#fff1,_inset_0_-0.4rem_1rem_0px_#252b35]',
         'cursor-pointer',

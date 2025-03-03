@@ -18,6 +18,7 @@ export default function AcaraPage() {
           Kami mengadakan berbagai acara menarik—dari meetup dan workshop hingga diskusi santai seputar desain, teknologi, dan inovasi. Temukan acara yang cocok untukmu dan jadi bagian dari komunitas kami!
         </p>
         <LinkButton
+          nextLink={true}
           href="/acara/ajukan-topik"
           className="inline-block mt-6">
           Ajukan Topik →

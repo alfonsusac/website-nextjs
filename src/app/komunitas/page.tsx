@@ -7,8 +7,8 @@ import { SectionGabungKami } from "@/components/GabungSection"
 
 export default function KomunitasPage() {
   return <>
-    <SectionTentangKami className="px-page-px pt-18 *:container-[600]" />
-    <SectionGabungKami className="px-page-px *:container-content" />
+    <SectionTentangKami className="px-page-px pt-18 *:container-content-xs" />
+    <SectionGabungKami className="px-page-px *:container-content-xs" asArticle />
   </>
 }
 

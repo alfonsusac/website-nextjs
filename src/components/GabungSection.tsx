@@ -7,9 +7,10 @@ import { MdiReact, MdiTelegram, CibMeetup, IcBaselineFacebook, RiTwitterXLine } 
 import { cn } from "lazy-cn";
 
 export function SectionGabungKami(
-  { compact, withCarousel, className, ...props }: ComponentProps<'section'> & {
+  { asArticle, compact, withCarousel, className, ...props }: ComponentProps<'section'> & {
     withCarousel?: boolean;
     compact?: boolean;
+    asArticle?: boolean;
   }
 ) {
   return <section className={cn(
@@ -19,7 +20,7 @@ export function SectionGabungKami(
     {...props}
   >
 
-    <div className="absolute inset-0 overflow-hidden  contain-layout flex justify-center">
+    <div className="absolute inset-0 overflow-hidden  contain-layout flex justify-center max-w-none!">
       <MdiReact className="h-[80rem] w-[80rem] shrink-0 stroke-[#505a6933] stroke-[0.02] translate-x-40 animate-dash-offset " fill="transparent"
         style={{
           strokeDasharray: '0.3 0.1 0.2 0.1',
@@ -30,9 +31,14 @@ export function SectionGabungKami(
     <div className="container-content flex flex-col items-start z-10">
 
       {/* Header */}
-      <section className="flex flex-col items-center text-center container-content-sm flex-wrap-reverse lg:flex-nowrap">
+      <section className={cn(
+        "flex flex-col items-center text-center container-content-sm flex-wrap-reverse lg:flex-nowrap",
+        asArticle && "items-start text-start"
+      )}>
         <SectionTag separator="Join" />
-        <SectionHeader id="join">
+        <SectionHeader id="join" className={cn(
+          asArticle && "text-3xl!",
+        )}>
           Gabung dan Jadi Bagian <br /> dari Komunitas!
         </SectionHeader>
         <SectionText className="mt-5">
