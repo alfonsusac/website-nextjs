@@ -47,6 +47,7 @@
 @utility container-* {
   margin-inline: auto;
   max-width: --value(--max-w-*);
+  max-width: calc(--value([integer]) * 1px)
 }
 @utility offset-x-* {
   margin-inline: calc(--value(number) * -0.25rem);

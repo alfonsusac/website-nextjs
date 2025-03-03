@@ -2,10 +2,10 @@ import { ReactIDLogo } from '@/components/icons/reactjs-id';
 import { cn } from 'lazy-cn';
 import React, { type ComponentProps, type SVGProps } from 'react';
 import { HeroCarousel } from '../_assets/Carousel';
-import { link_facebook, link_github, link_meetup, link_telegram, link_twitter } from '@/_content/links';
 import { IndonesiaHolograph } from '../_assets/IndonesiaHolo';
 import { LampGradientBackground } from '../_assets/LampGradient';
 import { featuredEvents } from '@/_content/events';
+import { communityInfo } from '@/_content/info';
 
 export default function Home() {
   return (
@@ -230,7 +230,7 @@ radial-gradient(
                 </a>
               </div>
 
-              <LinkButton className="self-start" href={link_github}>
+              <LinkButton className="self-start" href={communityInfo.github.link}>
                 Ikuti GitHub Kami {'->'}
               </LinkButton>
 
@@ -275,25 +275,25 @@ radial-gradient(
                     title: "Telegram Supergroup",
                     description: "Diskusi real-time dengan komunitas di Telegram!",
                     icon: MdiTelegram,
-                    href: link_telegram,
+                    href: communityInfo.telegram.link,
                   },
                   {
                     title: "Meetup Group",
                     description: "Ikuti event dan bertemu langsung dengan sesama developer!",
                     icon: CibMeetup,
-                    href: link_meetup,
+                    href: communityInfo.meetup.link,
                   },
                   {
                     title: "Facebook Group",
                     description: "Gabung di komunitas Facebook dan berbagi wawasan!",
                     icon: IcBaselineFacebook,
-                    href: link_facebook
+                    href: communityInfo.facebook.link
                   },
                   {
                     title: "Official Twitter Account",
                     description: "Dapatkan update dan insight terbaru di Twitter!",
                     icon: RiTwitterXLine,
-                    href: link_twitter
+                    href: communityInfo.twitter.link
                   },
                 ].map((social, index) => (
                   <SocialLink

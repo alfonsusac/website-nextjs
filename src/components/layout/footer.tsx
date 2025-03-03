@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { ReactIDLogo } from '../icons/reactjs-id';
 import { siFacebook, siGithub, siTelegram, siX } from 'simple-icons';
-import { link_facebook, link_github, link_telegram, link_twitter } from '@/_content/links';
 import { cn } from 'lazy-cn';
+import { communityInfo } from '@/_content/info';
 
 
 
@@ -45,22 +45,22 @@ export function SocialButtons(
           {
             label: 'facebook',
             icon: siFacebook,
-            url: link_facebook
+            url: communityInfo.facebook.link,
           },
           {
             label: 'github',
             icon: siGithub,
-            url: link_github,
+            url: communityInfo.github.link,
           },
           {
             label: 'telegram',
             icon: siTelegram,
-            url: link_telegram
+            url: communityInfo.telegram.link,
           },
           {
             label: 'X',
             icon: siX,
-            url: link_twitter
+            url: communityInfo.meetup.link,
           }
         ].map(({ label, url, icon: { path } }) => (
           <Link
