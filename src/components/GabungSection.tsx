@@ -1,9 +1,9 @@
-import { MdiReact, MdiTelegram, CibMeetup, IcBaselineFacebook, RiTwitterXLine } from "@/app/_assets/Icons";
 import type { ComponentProps } from "react";
 import { SocialLink } from "./Button";
 import { SectionTag, SectionHeader, SectionText } from "./Section";
 import { communityInfo } from "@/_content/info";
 import { HeroCarousel } from "@/app/_assets/Carousel";
+import { MdiReact, MdiTelegram, CibMeetup, IcBaselineFacebook, RiTwitterXLine } from "./Icons";
 
 export function SectionGabungKami(
   props: ComponentProps<'section'> & {
