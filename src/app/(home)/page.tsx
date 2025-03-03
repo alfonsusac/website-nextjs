@@ -4,11 +4,11 @@ import React, { type ComponentProps, type SVGProps } from 'react';
 import { HeroCarousel } from '../_assets/Carousel';
 import { IndonesiaHolograph } from '../_assets/IndonesiaHolo';
 import { LampGradientBackground } from '../_assets/LampGradient';
-import { featuredEvents } from '@/_content/events';
 import { communityInfo } from '@/_content/info';
 import { CibMeetup, IcBaselineFacebook, IcBaselineLaunch, IconoirLongArrowRightDownSolid, IcRoundStarRate, MdiReact, MdiTelegram, RiTwitterXLine } from '../../components/Icons';
 import { SectionText, SectionTag, SectionHeader } from '@/components/Section';
 import { LinkButton, SocialLink } from '@/components/Button';
+import { events } from '@/_content/events';
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="px-page-px pt-14 ">
+      <section className="px-page-px pt-14">
         <div className="container-content flex w-full flex-col items-start sm:items-center sm:text-center">
           <ReactIDLogo className="h-10" />
           <h1 className="mt-8 text-pretty font-bold text-5xl md:text-6xl lg:text-6xl text-white tracking-tighter">
@@ -96,7 +96,7 @@ export default function Home() {
             Reactjs.id Featured Events
             <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
           </div>
-          {featuredEvents.map((event) => (
+          {events.map((event) => (
             <div key={event.title} className="group flex gap-6 flex-col items-start xs:flex-row xs:items-center cursor-pointer">
               <div className="max-h-40 xs:h-28 sm:h-32 md:h-36 aspect-video shrink-0">
                 <img

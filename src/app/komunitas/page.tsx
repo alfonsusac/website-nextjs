@@ -2,14 +2,12 @@ import { communityInfo } from "@/_content/info"
 import { ReactIDLogo } from "@/components/icons/reactjs-id"
 import { cn } from "lazy-cn"
 import { Fragment, type ComponentProps, type SVGProps } from "react"
-import { MdiReact, MdiTelegram, CibMeetup, IcBaselineFacebook, RiTwitterXLine, PhCalendarCheckFill, PhFacebookLogoFill, PhUsersFill } from "../../components/Icons"
-import { SectionTag, SectionHeader, SectionText } from "@/components/Section"
-import { SocialLink } from "@/components/Button"
+import { PhCalendarCheckFill, PhFacebookLogoFill, PhUsersFill } from "../../components/Icons"
 import { SectionGabungKami } from "@/components/GabungSection"
 
 export default function KomunitasPage() {
   return <>
-    <SectionTentangKami className="px-page-px *:container-[600]" />
+    <SectionTentangKami className="px-page-px pt-18 *:container-[600]" />
     <SectionGabungKami className="px-page-px *:container-content" />
   </>
 }
@@ -20,7 +18,6 @@ function SectionTentangKami(
 ) {
   return <section {...props} >
     <div className={cn(
-      "pt-20",
       "font-light",
 
       "[&_p]:font-light",
@@ -30,6 +27,8 @@ function SectionTentangKami(
       "[&_h1]:text-foreground-loud",
       "[&_h1]:font-semibold",
       "[&_h1]:tracking-tight",
+      "[&_h1]:leading-none!",
+      "[&_h1]:mb-2",
 
       "[&_h2]:mt-24",
       "[&_h2]:mb-2",

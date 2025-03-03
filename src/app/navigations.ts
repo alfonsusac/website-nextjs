@@ -18,8 +18,4 @@ export const headerNavItem: {
       title: 'Materi',
       description: 'Belajar ReactJS jadi lebih mudah dengan materi yang siap pakai!'
     },
-    // {
-    //   title: 'Merchandise',
-    //   description: 'Dukung komunitas dengan merch keren khas ReactJS Indonesia!'
-    // },
   ]
