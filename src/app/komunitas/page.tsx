@@ -45,7 +45,7 @@ function SectionTentangKami(
         Organizers
       </h2>
 
-      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-6 my-8">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-2 my-8">
         {communityInfo.teamMembers.map((member, index) => (
           <div key={index} className="flex gap-3 flex-1 py-2">
             <img
@@ -72,7 +72,7 @@ function SectionTentangKami(
         {contributors.map((member, index) => (
           <a
             key={index}
-            href={member}
+            href={`https://github.com/${ member }`}
             target="_blank"
             className={cn(
               "flex gap-3 flex-1 items-center pointer-fine:hover:bg-foreground/5 rounded-3xl py-2 offset-x-2",
