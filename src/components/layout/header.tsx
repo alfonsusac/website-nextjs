@@ -133,8 +133,8 @@ export function Header() {
           </div>
         </nav>
 
-        <nav className="hidden sm:block text-sm">
-          <ul className="flex flex-row items-center [&_a]:h-full [&_a]:px-4 gap-2 [&_a]:hover:text-foreground-loud">
+        <nav className="hidden sm:block text-sm h-full ">
+          <ul className="flex flex-row gap-px [&_a]:hover:text-foreground-loud h-full">
             {
               [
                 'Komunitas',
@@ -143,8 +143,11 @@ export function Header() {
                 'Materi',
                 'Merchandise',
               ].map((item) => (
-                <li key={item}>
-                  <Link href={`/${ item.toLowerCase() }`}>
+                <li key={item} className="h-full flex items-center">
+                  <Link
+                    href={`/${ item.toLowerCase() }`}
+                    className="px-5 rounded-full py-2 hover:bg-foreground/5"
+                  >
                     {item}
                   </Link>
                 </li>

@@ -49,7 +49,7 @@
   max-width: --value(--max-w-*);
 }
 @utility offset-x-* {
-  margin-inline-start: calc(--value(number) * -0.25rem);
+  margin-inline: calc(--value(number) * -0.25rem);
   padding-inline: calc(--value(number) * 0.25rem)
 }
 @custom-variant pointer-fine (@media(pointer: fine));
