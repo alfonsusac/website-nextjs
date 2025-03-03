@@ -5,7 +5,8 @@ import { formatRelativeTime } from "@/util/time";
 import Link from "next/link";
 
 const NEW_ISSUE_LINK = "https://github.com/reactjs-id/meetup/issues/new?assignees=%40reactjs-id%2Fmeetup&labels=talks&template=talk-proposal.md"
-const LAST_EDITED = "2020-10-7:58:13.000+07:00"
+const LAST_EDITED = "2020-10-31T19:58:13.000+07:00"
+const CREATED_AT = "2019-07-11T16:45:28.000+07:00"
 
 export default function AjukanTopikPage() {
   return <>
@@ -92,6 +93,23 @@ export default function AjukanTopikPage() {
             {new Date(LAST_EDITED).toLocaleString()}
           </span>
         </a>
+
+
+        <div className="mt-4 text-muted-2/80 text-sm">
+          Tanggal dibuat:
+        </div>
+        <a
+          href="https://github.com/reactjs-id/website-v1/commit/f320eb875bdab8f078eb6678116265f5dde20b44"
+          className="py-2 hover:bg-muted-2/5 inline-block items-center offset-x-2 leading-[1.2] rounded-sm">
+          <span>
+            {formatRelativeTime(new Date(CREATED_AT))}
+          </span><br />
+          <span className="text-xs text-muted">
+            {new Date(CREATED_AT).toLocaleString()}
+          </span>
+        </a>
+
+
 
       </div>
     </section>
