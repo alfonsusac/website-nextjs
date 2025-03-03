@@ -41,14 +41,11 @@ function SectionTentangKami(
               className="rounded-full overflow-clip w-10 h-10 shrink-0"
             />
             <div className="text-sm font-normal">
-              <div className="text-foreground-loud">
+              <div className="text-foreground">
                 {member.name}
               </div>
-              <div className="text-foreground/60">
+              <div className="text-muted">
                 Core Team
-              </div>
-              <div className="flex gap-2">
-
               </div>
             </div>
           </div>
@@ -106,7 +103,7 @@ function SectionTentangKami(
         ].map((mission, index) => (
           <Fragment key={index}>
             <div className="mt-8 mb-2 text-muted font-normal text-sm">
-              Misi #{index + 1} - <mission.icon className="inline" />
+              Misi #{index + 1} - <mission.icon className="inline align-[-0.1em]" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-x-4">
               <h3 className="!mt-0 !text-2xl !leading-tight">

@@ -80,7 +80,6 @@ export function SectionGabungKami(
               },
             ].map((social, index) => (
               <SocialLink
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 key={index}
                 className={cn(
                   "relative overflow-hidden group flex flex-col gap-1 *:shrink-0",
