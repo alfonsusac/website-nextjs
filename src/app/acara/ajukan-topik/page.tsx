@@ -65,7 +65,7 @@ export default function AjukanTopikPage() {
       <div className="py-10">
 
         <div className="text-muted-2/80 text-sm">
-          Penulis
+          Penulis:
         </div>
         <a
           href="https://github.com/resir014"
@@ -80,7 +80,7 @@ export default function AjukanTopikPage() {
         </a>
 
         <div className="mt-4 text-muted-2/80 text-sm">
-          Terakhir Diedit
+          Terakhir Diedit:
         </div>
         <a
           href="https://github.com/reactjs-id/website-v2/commit/5abcd6d9908f8daca95e05cd66e0cc021d5d0cef"
