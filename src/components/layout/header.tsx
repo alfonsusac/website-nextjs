@@ -4,32 +4,8 @@ import { cn } from 'lazy-cn';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type SVGProps } from 'react';
 import { SocialButtons } from './footer';
-
-const headerNavItem: {
-  title: string,
-  description: string,
-}[] = [
-    {
-      title: 'Komunitas',
-      description: 'Terhubung dengan sesama penggemar ReactJS Indonesia!'
-    },
-    {
-      title: 'Event',
-      description: 'Jangan lewatkan acara seru seputar ReactJS di Indonesia!'
-    },
-    {
-      title: 'Blog',
-      description: 'Baca insight terbaru dan cerita menarik dari komunitas ReactJS Indonesia!'
-    },
-    {
-      title: 'Materi',
-      description: 'Belajar ReactJS jadi lebih mudah dengan materi yang siap pakai!'
-    },
-    {
-      title: 'Merchandise',
-      description: 'Dukung komunitas dengan merch keren khas ReactJS Indonesia!'
-    },
-  ]
+import { headerNavItem } from '@/app/navigations';
+import { usePathname } from 'next/navigation';
 
 
 export function Header() {
@@ -39,6 +15,9 @@ export function Header() {
     isMobileMenuOpen,
     toggleMobileMenu,
   } = useMobileNavbar()
+
+  const pathname = usePathname()
+  const isActive = (path: string) => pathname.split('/')[1].startsWith(path.toLowerCase())
 
   return (
     <header
@@ -119,8 +98,9 @@ export function Header() {
                     "py-6 border-t first:border-none border-foreground/10",
                     "hover:text-foreground-loud",
                     "group",
-                    "cursor-pointer"
+                    "cursor-pointer",
                   )}
+                  data-active={pathname.startsWith(`/${ item.title.toLowerCase() }`)}
                 >
                   {item.title}<span className="ml-2 group-hover:ml-3 transition-all">{'→'}</span>
                   <div className="text-sm opacity-80 text-wrap">
@@ -136,23 +116,37 @@ export function Header() {
         <nav className="hidden sm:block text-sm h-full ">
           <ul className="flex flex-row gap-px [&_a]:hover:text-foreground-loud h-full">
             {
-              [
-                'Komunitas',
-                'Event',
-                'Blog',
-                'Materi',
-                'Merchandise',
-              ].map((item) => (
-                <li key={item} className="h-full flex items-center">
+              headerNavItem.map((item) => (
+                <li key={item.title} className="h-full flex items-center">
                   <Link
-                    href={`/${ item.toLowerCase() }`}
-                    className="px-5 rounded-full py-2 hover:bg-foreground/5"
+                    href={`/${ item.title.toLowerCase() }`}
+                    className={cn(
+                      "px-5 rounded-full py-2 hover:bg-muted/20",
+                      isActive(item.title) && [
+                        "bg-muted/10",
+                        "text-foreground-loud",
+                      ]
+                    )}
                   >
-                    {item}
+                    {item.title}
                   </Link>
                 </li>
               ))
             }
+            <li className="h-full flex items-center ml-4">
+              <Link
+                href="/#gabung"
+                className={cn(
+                  "px-5 rounded-full py-2",
+                  "bg-accent",
+                  "text-foreground-loud",
+                  "hover:brightness-105",
+                  "font-medium",
+                )}
+              >
+                Gabung
+              </Link>
+            </li>
           </ul>
         </nav>
 

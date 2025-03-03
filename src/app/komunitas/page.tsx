@@ -55,11 +55,11 @@ function SectionTentangKami(
 
 
     )}>
-      <ReactIDLogo className="h-8" />
+      <ReactIDLogo className="h-5 mb-3" />
       <h1>
         Tentang Kami
       </h1>
-      <p className="text-2xl font-light text-foreground-loud leading-tight!">
+      <p className="text-2xl font-light text-foreground-loud leading-none!">
         Komunitas Developer React Terbesar di Indonesia
       </p>
       <p className="mt-8">
