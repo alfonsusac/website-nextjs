@@ -1,14 +1,20 @@
 import { cn } from "lazy-cn"
+import Link from "next/link"
 import type { ComponentProps } from "react"
 
-export function LinkButton(
-  { className, primary, ...props }: ComponentProps<'a'> & {
+export function LinkButton<NextLink extends boolean = false>(
+  { className, primary, nextLink, ...props }: ComponentProps<
+    NextLink extends true ? typeof Link : 'a'
+  > & {
+    href: string
     primary?: boolean
+    nextLink?: NextLink
   }
 ) {
+  const LinkComponent = nextLink ? Link : 'a'
+
   return (
-    <a
-      target="_blank"
+    <LinkComponent
       {...props}
       className={cn(
         'py-3 px-8 rounded-3xl',
@@ -39,7 +45,9 @@ export function LinkButton(
 }
 
 export function SocialLink(
-  { className, ...props }: ComponentProps<'a'>
+  { className, ...props }: ComponentProps<'a'> & {
+    href: string
+  }
 ) {
 
   return (

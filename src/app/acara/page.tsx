@@ -17,7 +17,9 @@ export default function AcaraPage() {
         <p className="font-light mt-4 max-w-160">
           Kami mengadakan berbagai acara menarik—dari meetup dan workshop hingga diskusi santai seputar desain, teknologi, dan inovasi. Temukan acara yang cocok untukmu dan jadi bagian dari komunitas kami!
         </p>
-        <LinkButton className="inline-block mt-6">
+        <LinkButton
+          href="/acara/ajukan-topik"
+          className="inline-block mt-6">
           Ajukan Topik →
         </LinkButton>
       </header>

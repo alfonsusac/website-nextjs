@@ -86,6 +86,7 @@ export function SectionGabungKami(
                   "relative overflow-hidden group flex flex-col gap-1 *:shrink-0",
                   compact ? "min-h-[unset]! flex-row justify-start" : "",
                 )}
+                href={social.href}
               >
                 <social.icon className="w-[1.5em] h-[1.5em] inline mr-1.5 mb-1 align-[-0.2rem] text-muted" fill="currentColor" />
                 <div className="text-lg text-foreground-loud tracking-tight z-10">

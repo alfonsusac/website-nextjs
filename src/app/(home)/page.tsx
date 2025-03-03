@@ -123,7 +123,9 @@ export default function Home() {
               </div>
             </div>
           ))}
-          <LinkButton>Lihat semua acara {'->'}</LinkButton>
+          <LinkButton
+            href="/acara"
+          >Lihat semua acara {'->'}</LinkButton>
         </div>
       </section>
 
@@ -303,6 +305,7 @@ radial-gradient(
                     // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                     key={index}
                     className="relative overflow-hidden group flex flex-col gap-1 *:shrink-0"
+                    href={social.href}
                   >
                     <social.icon className="w-[1.5em] h-[1.5em] inline mr-1.5 mb-1 align-[-0.2rem] text-muted" fill="currentColor" />
                     <div className="text-lg text-foreground-loud tracking-tight z-10">

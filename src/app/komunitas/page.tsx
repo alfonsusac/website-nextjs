@@ -17,47 +17,9 @@ function SectionTentangKami(
   props: ComponentProps<'section'>
 ) {
   return <section {...props} >
-    <div className={cn(
-      "font-light",
-
-      "[&_p]:font-light",
-
-      "[&_h1,h2,h3,h4,h5,p]:leading-[1.5]",
-      "[&_h1]:text-5xl",
-      "[&_h1]:text-foreground-loud",
-      "[&_h1]:font-semibold",
-      "[&_h1]:tracking-tight",
-      "[&_h1]:leading-none!",
-      "[&_h1]:mb-2",
-
-      "[&_h2]:mt-24",
-      "[&_h2]:mb-2",
-      "[&_h2]:text-2xl",
-      "[&_h2]:text-foreground-loud",
-      "[&_h2]:font-medium",
-      "[&_h2]:tracking-tight",
-
-      "[&_h3]:mt-16",
-      "[&_h3]:mb-4",
-      "[&_h3]:text-lg",
-      "[&_h3]:text-foreground-loud",
-      "[&_h3]:font-medium",
-      "[&_h3]:tracking-tight",
-
-      "[&_h4]:text",
-      "[&_h4]:text-muted",
-      "[&_h4]:font-normal",
-      "[&_h4]:tracking-tight",
-
-      "[&>hr]:border-muted",
-      "[&>hr]:my-14"
-
-
-    )}>
+    <div className="article-style-prose">
       <ReactIDLogo className="h-5 mb-3" />
-      <h1>
-        Tentang Kami
-      </h1>
+      <h1>Tentang Kami</h1>
       <p className="text-2xl font-light text-foreground-loud leading-none!">
         Komunitas Developer React Terbesar di Indonesia
       </p>
@@ -65,7 +27,6 @@ function SectionTentangKami(
         ReactJS Indonesia adalah komunitas yang didedikasikan untuk developer React di Indonesia. Kami bertujuan untuk menghubungkan, mendukung, dan menginspirasi para developer dari berbagai latar belakang dan tingkat pengalaman melalui berbagai kegiatan dan acara.
       </p>
       <GeneralStatisticBlock className="my-8" />
-
 
       <h2>
         Organizers
