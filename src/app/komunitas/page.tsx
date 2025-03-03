@@ -45,7 +45,7 @@ function SectionTentangKami(
         Organizers
       </h2>
 
-      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 my-8">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-6 my-8">
         {communityInfo.teamMembers.map((member, index) => (
           <div key={index} className="flex gap-3 flex-1 py-2">
             <img
@@ -68,7 +68,7 @@ function SectionTentangKami(
       <h4 className="-my-4 mt-0 font-medium! text-sm">
         Past Contributors
       </h4>
-      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-y-2 gap-x-3 my-8">
+      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-y-1 gap-x-6 my-8">
         {contributors.map((member, index) => (
           <a
             key={index}

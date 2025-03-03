@@ -1,6 +1,9 @@
+import { contributors } from "@/_content/contributors";
 import { writeFile } from "fs/promises";
 
 async function getRepos() {
+  "use cache"
+
   const response = await fetch('https://api.github.com/orgs/reactjs-id/repos', {
     headers: {
       Authorization: `token ${ process.env.GITHUB_TOKEN }`
@@ -24,8 +27,7 @@ export async function getAllGitHubContributors() {
   }
 
   const repos = await getRepos();
-  console.log(repos.map(r => r.name))
-  const contributors = new Set<string>()
+  const newContributors = new Set<string>()
   for (const repo of repos) {
     try {
       const response = await fetch(`https://api.github.com/repos/${ repo.full_name }/contributors`, {
@@ -51,13 +53,20 @@ export async function getAllGitHubContributors() {
         if (c.login === 'dependabot[bot]' || c.login === 'dependabot-preview[bot]') {
           continue
         }
-        contributors.add(c.login)
+        newContributors.add(c.login)
       }
     } catch (error) {
       console.log(error)
     }
   }
-  console.log([...contributors])
-  await writeFile('./src/_content/contributors.ts', `export const contributors = ${ JSON.stringify([...contributors], null, 2) }`, 'utf-8')
-  return [...contributors]
+  const oldContributors = new Set(contributors)
+  for (const c of oldContributors) {
+    // check if two sets are exactly the same
+    newContributors.delete(c)
+  }
+  if (newContributors.size === 0) {
+    return [...oldContributors]
+  }
+  await writeFile('./src/_content/contributors.ts', `export const contributors = ${ JSON.stringify([...newContributors], null, 2) }`, 'utf-8')
+  return [...newContributors]
 }
