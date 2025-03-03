@@ -51,7 +51,6 @@ export function HeroCarousel() {
         className="relative w-fit mx-auto group min-[2239px]:hidden"
         ref={ref}
       >
-        <StaticCarousel className="absolute top-0 right-full" />
         <StaticCarousel />
         <StaticCarousel className="absolute top-0 left-full" />
       </div>
@@ -69,7 +68,10 @@ function StaticCarousel(
 ) {
   return (
     <div
-      className={cn("flex justify-center gap-4 lg:gap-6 pl-4 lg:pl-6", className)}
+      className={cn(
+        "flex justify-center gap-4 lg:gap-6 pl-4 lg:pl-6",
+        className
+      )}
       {...props}
     >
       {Array.from({ length: imgCount }, (_, index) => index).map((i) => (

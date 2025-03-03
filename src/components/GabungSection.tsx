@@ -34,7 +34,7 @@ export function SectionGabungKami(
       </section>
       {/* End of Header */}
 
-      <section className="pt-20 lg:pt-20">
+      <section className="pt-20 lg:pt-20 relative left-1/2 -translate-x-1/2">
         <HeroCarousel />
       </section>
 
