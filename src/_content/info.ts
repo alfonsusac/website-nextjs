@@ -27,7 +27,7 @@ export const communityInfo = {
       links: {
         website: 'https://zainfathoni.com',
         twitter: 'https://x.com/zainfathoni/',
-        github: 'https://github.com/zainfathoni/',
+        github: 'https://github.com/zainfathoni',
       }
     },
     {
@@ -63,7 +63,7 @@ export const communityInfo = {
     },
     {
       name: 'Sonny Lazuardi',
-      github: 'https://x.com/sonnylazuardi'
+      github: 'https://github.com/sonnylazuardi'
     },
     {
       name: 'Adib Firman',
@@ -72,6 +72,13 @@ export const communityInfo = {
     {
       name: 'Afrian Junior',
       github: 'https://github.com/afrianjunior'
-    }
+    },
+    { github: 'https://github.com/iamyuu' },
+    { github: 'https://github.com/andihaki' },
+    { github: 'https://github.com/fikrialwan' },
+    { github: 'https://github.com/onlyhasbi' },
+    { github: 'https://github.com/amrew' },
+    { github: 'https://github.com/hanihusam' },
+    { github: 'https://github.com/ar-rohman' },
   ]
 }

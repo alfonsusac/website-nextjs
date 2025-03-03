@@ -47,14 +47,19 @@ export function HeroCarousel() {
 
   return (
     <>
-      <div className="relative w-fit mx-auto group min-[2239px]:hidden" ref={ref}>
+      <div
+        className="relative w-fit mx-auto group min-[2239px]:hidden"
+        ref={ref}
+      >
+        <StaticCarousel className="absolute top-0 right-full" />
         <StaticCarousel />
         <StaticCarousel className="absolute top-0 left-full" />
       </div>
-      <div className="hidden min-[2239px]:block">
+      <div
+        className="hidden min-[2239px]:block"
+      >
         <StaticCarousel />
       </div>
-
     </>
   )
 }
