@@ -6,7 +6,7 @@ import { IndonesiaHolograph } from '../_assets/IndonesiaHolo';
 import { LampGradientBackground } from '../_assets/LampGradient';
 import { featuredEvents } from '@/_content/events';
 import { communityInfo } from '@/_content/info';
-import { CibMeetup, IcBaselineFacebook, IcBaselineLaunch, IconoirLongArrowRightDownSolid, IcRoundStarRate, MdiReact, MdiTelegram, RiTwitterXLine } from '../_assets/Icons';
+import { CibMeetup, IcBaselineFacebook, IcBaselineLaunch, IconoirLongArrowRightDownSolid, IcRoundStarRate, MdiReact, MdiTelegram, RiTwitterXLine } from '../../components/Icons';
 import { SectionText, SectionTag, SectionHeader } from '@/components/Section';
 import { LinkButton, SocialLink } from '@/components/Button';
 
