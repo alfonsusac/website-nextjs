@@ -96,16 +96,18 @@ export default function AcaraPage() {
                     {event.speakers && (
                       <div className="line-clamp-1">
                         <div className="inline align-[0.1rem]">
-                          {
-                            event.speakers?.map(speaker => (
-                              <img
-                                key={speaker.profile.github}
-                                src={'https://github.com/' + speaker.profile.github + '.png'}
-                                alt={speaker.profile.name}
-                                className="w-4 h-4 rounded-full inline not-first:-ml-0.5 last:mask-none!"
-                                style={{ maskImage: 'radial-gradient(60% 60% at 135% , transparent 100%, black 100%)' }}
-                              />
-                            ))}
+                          {event.speakers?.map(speaker => (
+                            <img
+                              key={speaker.profile.name}
+                              src={speaker.profile.github
+                                ? 'https://github.com/' + speaker.profile.github + '.png'
+                                : '/user-placeholder-image.png'
+                              }
+                              alt={speaker.profile.name}
+                              className="w-4 h-4 rounded-full inline not-first:-ml-0.5 last:mask-none!"
+                              style={{ maskImage: 'radial-gradient(60% 60% at 135% , transparent 100%, black 100%)' }}
+                            />
+                          ))}
                         </div>
                         <div className="inline ml-2">
                           {new Intl
