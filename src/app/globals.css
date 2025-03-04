@@ -54,6 +54,11 @@
   margin-inline: calc(--value(number) * -0.25rem);
   padding-inline: calc(--value(number) * 0.25rem)
 }
+@utility mask-none {
+  mask-image: none;
+}
+
+
 @custom-variant pointer-fine (@media(pointer: fine));
 
 @utility article-style-prose {
@@ -105,7 +110,6 @@
     [&>a.link-button]:px-5
     [&>a.link-button]:text-sm
     [&>a.link-button]:rounded-xl
-
 }
 
 /*
@@ -160,8 +164,12 @@
   background: radial-gradient(50% 50% at 50% 50%, #a3d3ff12, rgba(255, 255, 255, 0));
 }
 
-.reactify-filter{
+@utility reactify-filter{
   filter: contrast(1.1) brightness(0.8) sepia() hue-rotate(170deg)
+ }
+
+@utility reactify-filter-blur{
+  filter: contrast(0.5) brightness(0.2) blur(2px)
  }
 
 .group:hover .reactify-filter{
