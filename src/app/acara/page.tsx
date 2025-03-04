@@ -10,6 +10,15 @@ export default function AcaraPage() {
 
   const sortedEvents = events.sort((a, b) => b.date.getTime() - a.date.getTime())
 
+  // group sorted events by year, (use typescript)
+
+  const years = new Set<number>()
+  sortedEvents.forEach(event => {
+    years.add(event.date.getFullYear())
+  })
+  console.log([...years])
+
+
   return <>
     <section className="px-page-px pt-18 *:container-content">
       <header className="pb-10">
@@ -49,80 +58,94 @@ export default function AcaraPage() {
         Rekap Acara Sebelumnya
       </h2>
 
-      <div className="flex flex-col gap-3">
-        {
-          sortedEvents
-            .map((event, i) => {
+      <div className="pl-2 pt-4">
+        <div className="border-l-2 border-muted/20 border-dashed pb-20">
+          {[...years].map((year, i) => (
+            <div key={year} className="flex flex-col gap-3  pl-4 ml-2">
+              <h2 className={cn(
+                "text-muted! leading-none! mb-0! mt-8! relative",
+                i === 0 && "-mt-3!"
+              )}>
+                <div className={cn(
+                  "w-2 h-2 rounded-full absolute bg-muted",
+                  "top-1/2 -left-6 -translate-x-[60%] -translate-y-1/2"
+                )} />
+                {year}
+              </h2>
+              {
+                sortedEvents
+                  .filter(event => event.date.getFullYear() === year)
+                  .map((event, i) => {
 
-              const formattedDate = new Intl.DateTimeFormat('id-ID', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-              }).format(event.date)
+                    const formattedDate = new Intl.DateTimeFormat('id-ID', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    }).format(event.date)
 
-              const formattedTime = new Intl.DateTimeFormat('id-ID', {
-                hour: 'numeric',
-                minute: 'numeric',
-                timeZoneName: 'short',
-              }).format(event.date)
+                    const formattedTime = new Intl.DateTimeFormat('id-ID', {
+                      hour: 'numeric',
+                      minute: 'numeric',
+                      timeZoneName: 'short',
+                    }).format(event.date)
 
-              return (
-                <div key={event.title}
-                  style={{
-                    // @ts-expect-error custom css
-                    "--padding": "1.1rem",
-                  }}
-                  className={cn(
-                    "flex flex-col-reverse xs:flex-row gap-4 bg-muted/10 rounded-2xl",
-                    "p-[var(--padding)]",
-                    "border border-muted/10",
-                    "hover:border-muted/40",
-                    "cursor-pointer",
-                  )}
-                >
+                    return (
+                      <div key={event.title}
+                        style={{
+                          // @ts-expect-error custom css
+                          "--padding": "1.1rem",
+                        }}
+                        className={cn(
+                          "flex flex-col-reverse xs:flex-row gap-4 bg-muted/10 rounded-2xl",
+                          "p-[var(--padding)]",
+                          "border border-muted/10",
+                          "hover:border-muted/40",
+                          "cursor-pointer",
+                        )}
+                      >
 
-                  <div className="grow flex-1">
+                        <div className="grow flex-1">
 
-                    <div className="text-sm text-muted-2/80">
-                      {formattedDate}
-                      <span className="font-black mx-1 text-muted"> • </span>
-                      {formattedTime}
-                    </div>
-                    <div className="mt-1 text-xl text-foreground-loud font-medium">
-                      {event.title}
-                    </div>
+                          <div className="text-sm text-muted-2/80">
+                            {formattedDate}
+                            <span className="font-black mx-1 text-muted"> • </span>
+                            {formattedTime}
+                          </div>
+                          <div className="mt-1 text-xl text-foreground-loud font-medium">
+                            {event.title}
+                          </div>
 
-                    {event.speakers && (
-                      <div className="line-clamp-1">
-                        <div className="inline align-[0.1rem]">
-                          {event.speakers?.map(speaker => (
-                            <img
-                              key={speaker.profile.name}
-                              src={speaker.profile.github
-                                ? 'https://github.com/' + speaker.profile.github + '.png'
-                                : '/user-placeholder-image.png'
-                              }
-                              alt={speaker.profile.name}
-                              className="w-4 h-4 rounded-full inline not-first:-ml-0.5 last:mask-none!"
-                              style={{ maskImage: 'radial-gradient(60% 60% at 135% , transparent 100%, black 100%)' }}
-                            />
-                          ))}
-                        </div>
-                        <div className="inline ml-2">
-                          {new Intl
-                            .ListFormat('en-US', { style: 'short' })
-                            .formatToParts(event.speakers.map(s => s.profile.name))
-                            .map((item, i) => (
-                              <span key={i} className={item.type === 'literal' ? 'text-muted-2/50' : ''}>
-                                {item.value}
-                              </span>
-                            ))}
-                        </div>
-                      </div>
-                    )}
+                          {event.speakers && (
+                            <div className="line-clamp-1">
+                              <div className="inline align-[0.1rem]">
+                                {event.speakers?.map(speaker => (
+                                  <img
+                                    key={speaker.profile.name}
+                                    src={speaker.profile.github
+                                      ? 'https://github.com/' + speaker.profile.github + '.png'
+                                      : '/user-placeholder-image.png'
+                                    }
+                                    alt={speaker.profile.name}
+                                    className="w-4 h-4 rounded-full inline not-first:-ml-0.5 last:mask-none!"
+                                    style={{ maskImage: 'radial-gradient(60% 60% at 135% , transparent 100%, black 100%)' }}
+                                  />
+                                ))}
+                              </div>
+                              <div className="inline ml-2">
+                                {new Intl
+                                  .ListFormat('en-US', { style: 'short' })
+                                  .formatToParts(event.speakers.map(s => s.profile.name))
+                                  .map((item, i) => (
+                                    <span key={i} className={item.type === 'literal' ? 'text-muted-2/50' : ''}>
+                                      {item.value}
+                                    </span>
+                                  ))}
+                              </div>
+                            </div>
+                          )}
 
-                    {/* {event.speakers &&
+                          {/* {event.speakers &&
                       <div className="my-2 flex gap-y-2 gap-x-4 flex-wrap">
                         {event.speakers?.map((speaker, i) => (
                           <div key={i} className="inline gap-2 text-sm !leading-tight font-light items-center">
@@ -136,31 +159,36 @@ export default function AcaraPage() {
                       </div>} */}
 
 
-                    {event.place?.name && (
-                      <div className="mt-2 text-sm text-muted-2/80">
-                        <FluentLocation16Regular
-                          className="inline align-[-0.1rem] mr-1" />
-                        {event.place.name}
-                      </div>
-                    )}
+                          {event.place?.name && (
+                            <div className="mt-2 text-sm text-muted-2/80">
+                              <FluentLocation16Regular
+                                className="inline align-[-0.1rem] mr-1" />
+                              {event.place.name}
+                            </div>
+                          )}
 
-                    {event.attendees && (
-                      <div className="mt-2 text-sm text-muted-2/80 bg-muted/20 inline-block p-1 leading-none rounded-md">
-                        <TablerUsers
-                          className="inline align-[-0.1rem] mr-1" />
-                        {event.attendees}
-                      </div>
-                    )}
+                          {event.attendees && (
+                            <div className="mt-2 text-sm text-muted-2/80 bg-muted/20 inline-block p-1 leading-none rounded-md">
+                              <TablerUsers
+                                className="inline align-[-0.1rem] mr-1" />
+                              {event.attendees}
+                            </div>
+                          )}
 
-                  </div>
-                  <EventCardImage
-                    src={event.image}
-                    alt={event.title}
-                  />
-                </div>
-              )
-            })}
+                        </div>
+                        <EventCardImage
+                          src={event.image}
+                          alt={event.title}
+                        />
+                      </div>
+                    )
+                  })}
+            </div>
+          ))}
+        </div>
       </div>
+
+
 
     </section>
 
