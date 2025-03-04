@@ -1,6 +1,7 @@
 export type People = {
   name: string,
-  github: string,
+  github?: string,
+  linkedin?: string,
 }
 
 export const people = {
@@ -27,5 +28,81 @@ export const people = {
   sonnylazuardi: {
     name: "Sonny Lazuardi",
     github: "sonnylazuardi",
+  },
+  radiegtya: {
+    name: "Ega Radiegtya",
+    github: "radiegtya",
+  },
+  achillesjorgie: {
+    name: "Jorgie Rizaldy",
+    github: "AchillesJorgie"
+  },
+  viankakrisna: {
+    name: "Ade Viankakrisna Fadlil",
+    github: "viankakrisna"
+  },
+  oshimayoan: {
+    name: "Yoan Pratama Putra",
+    github: "oshimayoan"
+  },
+  adibfirman: {
+    name: "Adib Firman",
+    github: "adibfirman"
+  },
+  resir: {
+    name: "Resi Respati",
+    github: "resir014"
+  },
+  r17x: {
+    name: "R Adysurya Agus",
+    github: "r17x"
+  },
+  dgana: {
+    name: "Ida Bagus Chahya Dhegana",
+    github: "dgana"
+  },
+  zainfathoni: {
+    name: "Zain Fathoni",
+    github: "zainfathoni"
+  },
+  mirzagarin: {
+    name: "Mirza Garin",
+    github: "mirza-garin"
+  },
+  praditautama: {
+    name: "Pradita Utama",
+    github: "praditautama"
+  },
+  ahmadfajar: {
+    name: "Ahmad Fajar",
+    linkedin: "https://www.linkedin.com/in/ahmad-fajar-74464414b",
+  },
+  pveyes: {
+    name: "Fatih Kalifa",
+    github: "pveyes"
+  },
+  dotdidik: {
+    name: "Didik Irawan",
+    github: "dotdidik"
+  },
+  iamyuu: {
+    name: "Muhammad Yusuf",
+    github: "iamyuu"
+  },
+  kresnasatya: {
+    name: "Kresna Satya",
+    github: "kresnasatya"
+  },
+  wahyuivan: {
+    name: "Wahyu Ivan",
+    github: "Whyu9-9"
+  },
+  wahyubudi: {
+    name: "Wahyu Budi Saputra",
+    github: "wahyubucil"
+  },
+  praburangki: {
+    name: "Praburangki",
+    github: "praburangki"
   }
 } satisfies Record<string, People>
