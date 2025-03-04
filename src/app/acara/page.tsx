@@ -74,15 +74,15 @@ export default function AcaraPage() {
                     "--padding": "1.1rem",
                   }}
                   className={cn(
-                    "flex gap-4 flex-wrap-reverse bg-muted/10 rounded-2xl",
+                    "flex flex-col-reverse xs:flex-row gap-4 bg-muted/10 rounded-2xl",
                     "p-[var(--padding)]",
                     "border border-muted/10",
                     "hover:border-muted/40",
-                    "cursor-pointer"
+                    "cursor-pointer",
                   )}
                 >
 
-                  <div className="grow flex-1 min-w-80">
+                  <div className="grow flex-1">
 
                     <div className="text-sm text-muted-2/80">
                       {formattedDate}
@@ -177,7 +177,7 @@ function EventCardImage(
 ) {
   if (!src) return null
   return (
-    <div className="w-36 h-36 rounded-lg self-end grid grid-cols-1 items-center overflow-hidden border border-muted/20">
+    <div className="xs:w-36 xs:h-36 rounded-lg shrink-0 grid grid-cols-1 items-center overflow-hidden border border-muted/20">
       <img src={src} alt={alt}
         className="col-start-1 row-start-1 z-10" />
       <img src={src} alt=""

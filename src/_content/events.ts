@@ -95,6 +95,7 @@ We look forward to seeing you there!`,
       source: "https://bandungdev.com/events/2024-07-27",
       title: 'Tech Meetup: Frontend Drama',
       date: date('2024-07-27', '13:00', '07:00'),
+      end: date('2024-07-27', '16:00', '07:00'),
       description: 'Meetup dan ngobrol santai seputar drama di dunia Frontend Web. Membahas situasi frontend saat ini, spesifik library/framework (React, Vue, Angular, dsb), arsitektur, komunitas, dsb',
       image: 'https://ucarecdn.com/710046cd-a1ab-448a-858f-1c7310185856/-/crop/2000x1123/0,39/-/preview/',
       place: {
@@ -102,6 +103,28 @@ We look forward to seeing you there!`,
         address: "Jl. Cisitu Indah VI No.6, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135",
         map: "https://maps.app.goo.gl/vNssDiCwaywtUrEF7",
       },
+      speakers: [
+        {
+          role: "Host, Organizer",
+          profile: people.mhaidarhanif
+        },
+        {
+          role: "Speaker",
+          profile: people.alfanhidayatullah,
+        },
+        {
+          role: "Speaker",
+          profile: people.alifanantomi,
+        },
+        {
+          role: "Organizer",
+          profile: people.fikrialwan
+        },
+        {
+          role: "Organizer",
+          profile: people.alvintrianto
+        }
+      ],
       details: `👋😁 Halo para software developer di Bandung dan manapun
 
 🏯 BandungDev akan mengadakan Tech Meetup: Frontend Drama

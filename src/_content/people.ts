@@ -104,5 +104,28 @@ export const people = {
   praburangki: {
     name: "Praburangki",
     github: "praburangki"
+  },
+  mhaidarhanif: {
+    name: "M Haidar Hanif",
+    github: "mhaidarhanif"
+  },
+  alfanhidayatullah: {
+    name: "Alfan Hidayatullah",
+    github: "aalvanh",
+    linkedin: "https://www.linkedin.com/in/alfanhidayatullah",
+  },
+  alifanantomi: {
+    name: "Alif Anantomi Budiarta",
+    github: "alifanantomi",
+    linkedin: "https://www.linkedin.com/in/alifanantomi"
+  },
+  fikrialwan: {
+    name: "Fikri Alwan",
+    github: "fikrialwan",
+  },
+  alvintrianto: {
+    name: "Alvin Trianto",
+    github: "alvintrianto",
+    linkedin: "https://www.linkedin.com/in/alvintrianto"
   }
 } satisfies Record<string, People>
