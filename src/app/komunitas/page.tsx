@@ -218,7 +218,7 @@ function GeneralStatisticBlock(
       </div>
       <div>
         <PhCalendarCheckFill className="text-muted" />
-        <div>12 Events</div>
+        <div>{events.length} Events</div>
         <p>Acara diselenggarakan</p>
       </div>
       <div>
