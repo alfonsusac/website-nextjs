@@ -6,6 +6,8 @@ import { HugeiconsTree06, IconParkOutlineCircularConnection, MaterialSymbolsGlob
 import { SectionGabungKami } from "@/components/GabungSection"
 import { getAllGitHubContributors } from "@/util/data"
 import { contributors } from "@/_content/contributors"
+import { events } from "@/_content/events"
+import type { People } from "@/_content/people"
 
 export default async function KomunitasPage() {
 
@@ -28,6 +30,13 @@ function SectionTentangKami(
     ...communityInfo.contributors.map(e => e.github),
     ...contributors
   ]
+
+  const speakers = new Set<People>()
+
+  events
+    .flatMap(e => e.speakers?.map(e => e.profile) ?? [])
+    .forEach(e => e ? speakers.add(e) : "")
+
 
   return <section {...props} >
     <div className="article-style-prose">
@@ -89,6 +98,41 @@ function SectionTentangKami(
             <div className="text-sm font-normal">
               <div className="line-clamp-1 ">
                 {member.split('/').at(-1)}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <h4 className="-my-4 mt-0 font-medium! text-sm">
+        Past Speakers
+      </h4>
+      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-y-1 gap-x-6 my-8">
+        {[...speakers].map((member, index) => (
+          <a
+            key={index}
+            href={member.github
+              ? `https://github.com/${ member.github }`
+              : `https://linkedin.com/in/${ member.linkedin }`
+            }
+            target="_blank"
+            className={cn(
+              "flex gap-3 flex-1 items-center pointer-fine:hover:bg-foreground/5 rounded-3xl py-2 offset-x-2",
+
+              "transition-all duration-500",
+              "pointer-fine:hover:transition-none",
+            )}
+          >
+            <img
+              src={member.github
+                ? 'https://github.com/' + member.github + '.png'
+                : 'user-placeholder-image.png'
+              }
+              alt={member.name}
+              className="rounded-full overflow-clip w-6 h-6 shrink-0"
+            />
+            <div className="text-sm font-normal">
+              <div className="line-clamp-1 ">
+                {member.name}
               </div>
             </div>
           </a>

@@ -1,5 +1,6 @@
 import { contributors } from "@/_content/contributors";
 import { writeFile } from "fs/promises";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 async function getRepos() {
   "use cache"
@@ -17,6 +18,7 @@ async function getRepos() {
 
 export async function getAllGitHubContributors() {
   "use cache"
+  cacheLife("max")
   if (process.env.NODE_ENV !== 'development') return
   const repos = await getRepos();
   const newContributors = new Set<string>()
