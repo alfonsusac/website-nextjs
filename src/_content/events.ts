@@ -11,6 +11,7 @@ function date(
 }
 
 export const events: {
+  slug: string,
   title: string,
   date: Date,
   end?: Date,
@@ -39,6 +40,7 @@ export const events: {
   }[]
 }[] = [
     {
+    slug: "reactid-bali-meetup",
     source: "https://docs.google.com/forms/d/e/1FAIpQLSdsc0g5EZix0-_fhqDs_kWeX-nZR_YHwRRDXP5GTuu-DbxbvA/viewform",
       title: 'ReactID Bali Meetup',
     date: date('2025-01-18', '14:00', '08:00'),
@@ -92,6 +94,7 @@ We look forward to seeing you there!`,
     featured: true,
     },
     {
+      slug: "bandung-dev-front-end-drama",
       source: "https://bandungdev.com/events/2024-07-27",
       title: 'Tech Meetup: Frontend Drama',
       date: date('2024-07-27', '13:00', '07:00'),
@@ -162,6 +165,7 @@ Tim BandungDev`,
       featured: true,
     },
     {
+      slug: "reactid-meetup-1",
       source: 'https://www.meetup.com/reactindonesia/events/228745645',
       title: 'Modern Programming in 2016',
       date: date('2016-02-27', '15:00'),
@@ -202,6 +206,7 @@ Talk 2 - "Getting started with Ruby on Rails 5" by Giovanni Sakti, organizer of 
 Talk 3 - "Modern Coding Tools" by Simon Sturmer, JavaScript coder and co-founder at KodeFox.`,
     },
     {
+      slug: "reactid-workshop-1",
       source: 'https://www.meetup.com/reactindonesia/events/234636840',
       title: "React Workshop",
       date: date('2016-10-15', '11:00'),
@@ -281,6 +286,7 @@ Sampai berjumpa nanti!
 Happy Reacting`
     },
     {
+      slug: "reactid-meetup-2017",
       source: "https://www.meetup.com/reactindonesia/events/237901182",
       title: "React Meetup March 2017",
       date: date('2017-03-07', '18:30'),
@@ -311,6 +317,7 @@ Happy Reacting`
       ]
     },
     {
+      slug: "reactid-meetup-2017-april",
       source: "https://www.meetup.com/reactindonesia/events/238996101",
       title: "React April Meetup",
       date: date('2017-04-10', '18:30'),
@@ -393,6 +400,7 @@ Event ini GRATIS. Buat yang ingin bergabung, silakan ke halaman eventbrite berik
 Sampai bertemu!`,
     },
     {
+      slug: "reactid-meetup-1-july-2019",
       source: "https://www.meetup.com/reactindonesia/events/263022521",
       title: "ReactJS Indonesia Meetup #1 July 2019",
       date: date('2019-07-16', '19:00'),
@@ -487,6 +495,7 @@ Sampai jumpa nanti!
 Happy Reacting!`
     },
     {
+      slug: "reactid-meetup-3",
       source: "https://www.meetup.com/reactindonesia/events/264687602",
       title: "ReactJS Indonesia x Shopee Meetup #3 September 2019",
       date: date('2019-09-25', '18:30'),
@@ -571,6 +580,7 @@ Sampai jumpa nanti!
 Happy Reacting!`
     },
     {
+      slug: "reactid-meetup-4",
       source: "https://www.meetup.com/reactindonesia/events/268139930/?eventOrigin=group_events_list",
       title: "ReactJS Indonesia x Hacktiv8 Meetup #4 October 2019",
       date: date('2019-10-29', '18:30'),
@@ -657,6 +667,7 @@ Happy Reacting!
 NOTE: Jika sudah konfirmasi kehadiran dan batal untuk hadir, Silahkan dikonfirmasi kembali yah!`
     },
     {
+      slug: "reactid-meetup-6",
       source: "https://www.meetup.com/reactindonesia/events/268139930",
       title: "ReactJS Indonesia Meetup #6 January 2020",
       date: date('2020-01-31', '19:00'),

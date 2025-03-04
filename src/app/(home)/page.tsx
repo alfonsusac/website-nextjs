@@ -103,7 +103,7 @@ export default function Home() {
                   src={event.image}
                   alt=""
                   className={cn(
-                    "reactify-filter rounded-2xl transition-all duration-300 outline outline-muted/30",
+                    "reactify-filter h-full aspect-video object-contain rounded-2xl transition-all duration-300 outline outline-muted/30",
                     "pointer-fine:group-hover:scale-105",
                   )} />
               </div>
