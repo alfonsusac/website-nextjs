@@ -11,6 +11,7 @@ import { LinkButton, SocialLink } from '@/components/Button';
 import { events } from '@/_content/events';
 
 export default function Home() {
+  const featuredEvents = events.filter(e => e.featured);
   return (
     <>
       {/* Background Layer */}
@@ -96,7 +97,7 @@ export default function Home() {
             Reactjs.id Featured Events
             <IconoirLongArrowRightDownSolid className="w-6 h-6 inline translate-y-1" />
           </div>
-          {events.filter(e => e.featured).slice(0, 3).map((event) => (
+          {featuredEvents.map((event) => (
             <div key={event.title} className="group flex gap-6 flex-col items-start xs:flex-row xs:items-center cursor-pointer">
               <div className="max-h-40 xs:h-28 sm:h-32 md:h-36 aspect-video shrink-0">
                 <img

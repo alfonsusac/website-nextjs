@@ -60,6 +60,12 @@
 
 
 @custom-variant pointer-fine (@media(pointer: fine));
+@custom-variant h1 (& h1);
+@custom-variant h2 (& h2);
+@custom-variant h3 (& h3);
+@custom-variant h4 (& h4);
+@custom-variant hr (& hr);
+@custom-variant p (& p);
 
 @utility article-style-prose {
   @apply
@@ -72,26 +78,26 @@
     [&_h1]:leading-none
     [&_h1]:mb-2
 
-    [&_h2]:mt-24
-    [&_h2]:mb-2
-    [&_h2]:text-2xl
-    [&_h2]:text-foreground-loud
-    [&_h2]:font-medium
-    [&_h2]:tracking-tight
+    h2:mt-24
+    h2:mb-2
+    h2:text-2xl
+    h2:text-foreground-loud
+    h2:font-medium
+    h2:tracking-tight
 
-    [&_h3]:mt-16
-    [&_h3]:mb-4
-    [&_h3]:text-lg
-    [&_h3]:text-foreground-loud
-    [&_h3]:font-medium
-    [&_h3]:tracking-tight
+    h3:mt-16
+    h3:mb-4
+    h3:text-lg
+    h3:text-foreground-loud
+    h3:font-medium
+    h3:tracking-tight
 
-    [&_h4]:text-muted-2
-    [&_h4]:font-normal
-    [&_h4]:tracking-tight
+    h4:text-muted-2
+    h4:font-normal
+    h4:tracking-tight
 
-    [&>hr]:border-muted
-    [&>hr]:my-14
+    hr:border-muted
+    hr:my-14
 
     [&>p,&>ol]:my-[1lh]
 
@@ -111,6 +117,30 @@
     [&>a.link-button]:text-sm
     [&>a.link-button]:rounded-xl
 }
+
+@utility article-style-prose-event-details {
+  @apply article-style-prose
+    h1:text-[2rem]
+    h1:leading-[1.2]
+    h1:tracking-[-0.3px]!
+    h1:font-semibold
+
+    h2:mt-8
+    h2:mb-3
+    h2:text-sm
+    h2:border-b
+    h2:border-b-muted/25
+    h2:text-muted-2/80
+    h2:pb-2
+    h2:font-medium
+    h2:tracking-normal
+
+    p:my-3!
+}
+@utility adaptive-invert {
+  filter: invert(1) sepia(0) hue-rotate(180deg)  contrast(0.9) saturate(1)
+}
+
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
