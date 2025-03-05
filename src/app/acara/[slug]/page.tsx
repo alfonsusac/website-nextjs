@@ -1,5 +1,6 @@
 import { events } from "@/_content/events"
 import { Map } from "@/components/geo/Map"
+import Link from "next/link"
 import type { SVGProps } from "react"
 
 export default async function AcaraDetailPage(
@@ -35,8 +36,11 @@ export default async function AcaraDetailPage(
   return (
     <section className="px-page-px *:container-content min-h-screen pt-18 pb-20">
       <div className=" md:flex gap-10 max-md:container-content-xs!">
-        <div className="left grow article-style-prose-event-details">
 
+        <div className="left grow article-style-prose-event-details">
+          <Link href="/acara" className="text-sm text-muted-2 hover:text-foreground block py-6 -mt-14">
+            ← Daftar Acara
+          </Link>
           <div
             className="event-page-image rounded-2xl max-h-80 flex justify-center relative overflow-hidden"
           >
