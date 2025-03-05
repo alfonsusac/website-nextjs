@@ -28,9 +28,10 @@ export default async function AcaraDetailPage(
     )
   })
 
-  const mapEmbedUrl = new URL('https://www.google.com/maps/embed/v1/place')
-  mapEmbedUrl.searchParams.set('key', process.env.GOOGLE_EMBED_MAP_API_KEY!)
+  const mapEmbedUrl = new URL('https://www.google.com/maps')
   mapEmbedUrl.searchParams.set('q', event.place?.name + ' ' + event.place?.address)
+  mapEmbedUrl.searchParams.set('output', 'embed')
+  mapEmbedUrl.searchParams.set('z', '13')
 
   return (
     <section className="px-page-px *:container-content min-h-screen pt-18 pb-20">
