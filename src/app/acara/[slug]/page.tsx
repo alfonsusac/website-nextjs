@@ -1,5 +1,4 @@
 import { events } from "@/_content/events"
-import { Map } from "@/components/geo/Map"
 import Link from "next/link"
 import type { SVGProps } from "react"
 
