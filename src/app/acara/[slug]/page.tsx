@@ -122,9 +122,12 @@ export default async function AcaraDetailPage(
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {event.speakers.map(speaker => {
                   return (
-                    <div key={speaker.profile.github} className="flex gap-3 items-center">
+                    <div key={speaker.profile.github ?? speaker.profile.name} className="flex gap-3 items-center">
                       <img
-                        src={"https://github.com/" + speaker.profile.github + '.png'}
+                        src={speaker.profile.github
+                          ? "https://github.com/" + speaker.profile.github + '.png'
+                          : "/user-placeholder-image.png"
+                        }
                         className="rounded-full w-10 h-10 object-cover shrink-0"
                       />
                       <div className="flex flex-col leading-none font-normal">
@@ -210,7 +213,7 @@ export default async function AcaraDetailPage(
                 })
               ].map((link, i) => {
                 return (
-                  <a className="flex gap-2 group" target="_blank" href={link.href} key={i}>
+                  <a className="flex gap-2 group py-1" target="_blank" href={link.href} key={i}>
                     <div className="shrink-0">
                       {link.icon}
                     </div>
