@@ -1,4 +1,5 @@
 import { events } from "@/_content/events"
+import { getSearchQuery, toUrl } from "@/util/url"
 import Link from "next/link"
 import type { SVGProps } from "react"
 
@@ -29,7 +30,14 @@ export default async function AcaraDetailPage(
   })
 
   const mapEmbedUrl = new URL('https://www.google.com/maps')
-  mapEmbedUrl.searchParams.set('q', event.place?.name + ' ' + event.place?.address)
+
+  mapEmbedUrl.searchParams.set('q',
+
+    (event.place?.map && event.place.map.startsWith('https://www.google.com/maps/search/?api=1&query='))
+      ? (getSearchQuery(event.place.map, 'query') + '')
+      : (event.place?.name + ' ' + event.place?.address)
+  )
+
   mapEmbedUrl.searchParams.set('output', 'embed')
   mapEmbedUrl.searchParams.set('z', '13')
 
@@ -164,6 +172,7 @@ export default async function AcaraDetailPage(
                 target="_blank"
                 className="rounded-xl overflow-hidden max-h-60 shadow-lg flex items-center relative hover:brightness-110">
                 <iframe
+                  title={`Google Maps of the event location (${ event.place?.name } ${ event.place?.address })`}
                   className="w-full pointer-events-none adaptive-invert"
                   height="600"
                   loading="lazy"
